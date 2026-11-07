@@ -7,49 +7,91 @@ Fonte de todos os números: `results/key_results.md` (gerado), execução de 202
 
 ## Post (PT-BR)
 
-**Spark vs DuckDB vs Polars: o mais rápido nem sempre é o melhor — e um benchmark errado pode custar caro**
+O DuckDB foi até 50× mais rápido que o Spark no meu teste.
 
-Muita empresa quer cortar custo e latência dos pipelines analíticos e começa pela pergunta "qual motor é mais rápido?". Antes dela, vem outra: os três estão devolvendo a mesma resposta?
+E esse é o dado menos importante deste post. 👇
 
-Peguei um benchmark simples de varejo (4 consultas: filtro, join, janela e agregação de alta cardinalidade) e, antes de cronometrar qualquer coisa, auditei o código. O que encontrei:
-• o projeto nem rodava como foi entregue;
-• o "oráculo" de correção era o próprio DuckDB, comparado consigo mesmo;
-• o Polars somava um grupo só com NULL como 0, enquanto o SQL devolve NULL;
-• os dados não tinham NULL, órfãos no join nem estornos, então esses bugs nunca apareciam.
+Peguei um benchmark pronto de Spark vs DuckDB vs Polars (4 consultas de varejo: filtro, join, janela e agregação). Antes de cronometrar qualquer coisa, fiz uma pergunta simples:
 
-Refiz com correção como bloqueio: uma referência independente em Python puro (e SQLite), casos de borda com resultado escrito à mão e validação de TODA execução medida. Nenhum tempo entra no gráfico sem PASS.
+os três estão devolvendo a MESMA resposta?
 
-Resultado medido (1 notebook, i7-8565U, 16 GB, 10M de linhas, 5 medições após aquecimento, Spark em modo local):
-• DuckDB e Polars ficaram na mesma ordem de grandeza: de ~0,2 s a ~4 s de trabalho do motor por consulta;
-• o Spark local levou de ~8 a ~26 s, mais ~8,5–10,5 s só para iniciar a sessão;
-• nenhum motor venceu tudo: em 1M, o Polars ganhou do DuckDB na agregação de alta cardinalidade.
+Não estavam sendo verificados de verdade. Na auditoria, encontrei:
 
-O que isso NÃO diz: nada sobre Spark em cluster, dados maiores que a RAM, governança ou custo total. Spark continua fazendo sentido quando o problema é distribuído e a plataforma já existe.
+❌ o projeto nem rodava como foi entregue
+❌ o "juiz" da correção era o próprio DuckDB, comparado consigo mesmo
+❌ o Polars somava um grupo só com NULL como 0 (o SQL devolve NULL)
+❌ os dados não tinham NULL, órfãos no join nem estornos
 
-A lição: velocidade sem correção verificada é só um número bonito. Valide primeiro, meça depois, e publique as limitações junto.
+Esse último é o mais perigoso: com dados "bonitos demais", nenhum bug aparecia. O benchmark dizia "tudo certo".
 
-Código, dados sintéticos com seed fixa e instruções para reproduzir: https://github.com/felipefb/spark-duckdb-polars-benchmark
+Então inverti a ordem: correção primeiro, velocidade depois.
+✅ referência independente em Python puro + SQLite
+✅ casos de borda com a resposta escrita à mão ANTES de rodar
+✅ validação de cada execução medida
+✅ resultado errado não entra no gráfico
 
-Inspirado em "Half the bugs were in the benchmark", de Jacob Verhoeks (4/nov/2026): https://jacob.verhoeks.org/blog/2026-11-04-half-the-bugs-were-in-the-benchmark/
+270 de 270 execuções passaram. Só então olhei o cronômetro.
 
-#DataEngineering #DuckDB #Polars #ApacheSpark #Benchmark
+Em 10 milhões de linhas, num notebook comum:
+→ DuckDB: de 0,17 s a 2,5 s por consulta
+→ Polars: de 0,29 s a 4 s
+→ Spark (modo local): de 8 s a 26 s, mais ~8,5 s só para iniciar a sessão
+
+Mas não houve vencedor universal: em 1 milhão de linhas, o Polars ganhou do DuckDB numa das consultas.
+
+E o que esse teste NÃO prova: nada sobre Spark em cluster, dados maiores que a memória ou custo total. Para esses problemas, o Spark continua sendo uma ótima escolha.
+
+A lição que levo:
+velocidade sem correção é só um número bonito. E um benchmark errado pode justificar uma migração cara.
+
+Deixei tudo aberto (código, dados com seed fixa, testes e limitações) para você rodar na sua máquina. Link nos comentários.
+
+E você: já viu uma decisão de arquitetura ser tomada com base num benchmark que ninguém validou?
+
+#DataEngineering #DuckDB #Polars #ApacheSpark #EngenhariaDeDados
+
+### 1º comentário (publicar logo após o post)
+Repositório para reproduzir: https://github.com/felipefb/spark-duckdb-polars-benchmark
+Inspiração: "Half the bugs were in the benchmark", de Jacob Verhoeks (4/nov/2026): https://jacob.verhoeks.org/blog/2026-11-04-half-the-bugs-were-in-the-benchmark/
+Ambiente: Intel i7-8565U, 16 GB, Windows 11, 4 threads por motor, DuckDB 1.4.1, Polars 1.35.2, PySpark 4.0.1. Mediana de 5 medições após aquecimento.
+
+### Dicas de publicação (engajamento)
+- **As 2 primeiras linhas** são o gancho: é o que aparece antes do "ver mais". O dado do 50× chama atenção, e a virada ("o menos importante") faz a pessoa abrir o post.
+- **Links no 1º comentário**, não no corpo: o LinkedIn tende a reduzir o alcance de posts com link externo.
+- **Imagem ou carrossel junto:** use o carrossel (abaixo) ou `results/charts/linkedin_16x9.png`.
+- **Responda os comentários na primeira hora**: é quando o algoritmo decide o alcance.
+- **A pergunta final** convida experiências pessoais, que geram comentários mais longos do que um "concordo".
+- Horário sugerido: terça a quinta, entre 8h e 10h.
 
 ---
 
-## Carrossel (6 slides)
-1. **Problema** — "Qual motor é mais rápido?" é a segunda pergunta. A primeira: os resultados estão certos? Velocidade sem correção leva a decisões caras.
-2. **Motores** — Spark 4.0.1 (modo local), DuckDB 1.4.1 e Polars 1.35.2, com mesma entrada Parquet, mesmas regras e 4 threads. Q1 filtro+agg · Q2 join · Q3 janela · Q4 agg de alta cardinalidade.
-3. **Metodologia** — seed fixa · processo novo por execução · 1 aquecimento + 5 medições · ordem alternada · mediana e p25–p75 · fases separadas (init, consulta, escrita) · RSS/CPU da árvore de processos · manifesto do ambiente.
-4. **Correção** — referência independente (Python puro + SQLite) · fixtures com NULL, duplicatas, empates, órfãos, negativos e datas-limite · hash canônico + invariantes · 270/270 execuções PASS · 65 testes. No código original: 3 bugs latentes de semântica de NULL e tipos.
-5. **Resultados (10M linhas, 1 notebook)** — usar `results/charts/linkedin_16x9.png`. DuckDB e Polars entre ~0,2 e ~4 s; Spark local entre ~8 e ~26 s, mais ~8,5–10,5 s de inicialização. Sem vencedor universal.
-6. **Recomendações** — dados que cabem numa máquina: DuckDB (SQL) ou Polars (DataFrame). Spark: escala distribuída e plataforma existente, mas isso pede outro benchmark. Reproduza: https://github.com/felipefb/spark-duckdb-polars-benchmark.
+## Carrossel (6 slides — título curto + 1 ideia por slide)
+1. **"O DuckDB foi 50× mais rápido que o Spark. E isso quase não importa."** — Subtítulo: o que um benchmark precisa provar antes de medir velocidade.
+2. **"A pergunta errada"** — "Qual é o mais rápido?" vem depois de "todos dão a mesma resposta?". Um motor 10× mais rápido que trata NULL diferente é um bug em produção.
+3. **"O que a auditoria encontrou"** — 4 problemas com ❌: não rodava · DuckDB julgando a si mesmo · NULL somado como 0 no Polars · dados sem casos de borda (por isso nenhum bug aparecia).
+4. **"Correção primeiro"** — referência independente (Python puro + SQLite) · casos de borda com resposta escrita à mão · cada execução validada · **270/270 PASS** antes de olhar qualquer tempo.
+5. **"O resultado (10M de linhas, 1 notebook)"** — imagem `results/charts/linkedin_16x9.png`. DuckDB e Polars entre 0,17 s e 4 s; Spark local entre 8 s e 26 s, mais ~8,5 s de inicialização. Sem vencedor universal.
+6. **"Quando usar cada um"** — cabe numa máquina: DuckDB (SQL) ou Polars (DataFrame) · distribuído, maior que a RAM, plataforma existente: Spark (pede outro benchmark) · **Valide primeiro, meça depois.** Código aberto: link no post.
 
 ## Imagem 16:9
 `results/charts/linkedin_16x9.png`: medianas e p25–p75 por consulta, trabalho do motor × ponta a ponta, com hardware e escala na legenda.
 
 ## Short English version
-**Spark vs DuckDB vs Polars: fastest isn't always best — and a wrong benchmark is expensive.**
-Before timing anything I audited a small retail benchmark: it didn't run, DuckDB was its own correctness oracle, and Polars summed all-NULL groups as 0 instead of NULL (masked because the data had no NULLs). I rebuilt it with a blocking, independent reference (plain Python + SQLite), hand-written edge cases and validation of every measured run. On one laptop (10M rows, 5 runs after warm-up), DuckDB and Polars took ~0.2–4 s of engine time per query; local-mode Spark took ~8–26 s, plus ~8.5–10.5 s session start-up. No universal winner, and nothing here speaks to Spark clusters. Validate first, then measure. Inspired by Jacob Verhoeks, "Half the bugs were in the benchmark" (https://jacob.verhoeks.org/blog/2026-11-04-half-the-bugs-were-in-the-benchmark/). Repo: https://github.com/felipefb/spark-duckdb-polars-benchmark
+DuckDB was up to 50× faster than Spark in my test.
+
+That's the least important number in this post. 👇
+
+Before timing anything, I asked: do all three engines return the SAME answer? The benchmark I started from couldn't tell. It didn't run, DuckDB was judging itself, and Polars summed all-NULL groups as 0 instead of NULL. The data had no NULLs or orphan keys, so no bug ever showed up.
+
+So I flipped the order: correctness first. Independent reference (plain Python + SQLite), edge cases with hand-written answers, every measured run validated. 270/270 passed. Only then did I look at the clock.
+
+On 10M rows on a regular laptop: DuckDB 0.17–2.5 s per query, Polars 0.29–4 s, local-mode Spark 8–26 s plus ~8.5 s of session start-up. Still no universal winner: at 1M rows, Polars beat DuckDB on one query. And none of this says anything about Spark clusters or data larger than memory.
+
+Speed without verified correctness is just a pretty number.
+
+Have you ever seen an architecture decision made on a benchmark nobody validated?
+
+Repo + source (Jacob Verhoeks, "Half the bugs were in the benchmark") in the comments.
 
 ---
 

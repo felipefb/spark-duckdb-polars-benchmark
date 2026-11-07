@@ -238,6 +238,48 @@ def key_results(st):
     return "\n".join(out) + "\n"
 
 
+README_START, README_END = "<!-- RESULTADOS:INICIO (gerado por report.py) -->", "<!-- RESULTADOS:FIM -->"
+
+
+def readme_block(st):
+    """Headline table for the README (largest measured scale). Replaces the block between markers."""
+    scale = [s for s in ["extension", "baseline", "smoke"] if s in set(st["scale"])][0]
+    s = st[(st["scale"] == scale) & (st["query"] != "q0") & (st["status"] == "PASS")]
+    rows = int(s["input_rows"].iloc[0])
+    name = {"q1": "Q1 filtro + agregação", "q2": "Q2 join + agregação", "q3": "Q3 janela (última compra)",
+            "q4": "Q4 agregação alta cardinalidade"}
+    lines = [README_START, "",
+             f"**Escala {scale}: {rows:,} linhas** · mediana de {int(s['pass_runs'].min())} medições após 1 aquecimento · "
+             "só execuções com PASS de correção".replace(",", "."), "",
+             "| Consulta | DuckDB | Polars | Spark (local) | Mais rápido |", "|---|---|---|---|---|"]
+    for qq in [x for x in QUERIES if x in set(s["query"])]:
+        g = s[s["query"] == qq].set_index("engine")
+        best = g["t_engine_work_median"].idxmin()
+        cell = {e: (f"{g.loc[e, 't_engine_work_median']:.2f} s" + (f" ({g.loc[e, 't_engine_work_median'] / g.loc[best, 't_engine_work_median']:.1f}×)" if e != best else ""))
+                for e in ENGINES if e in g.index}
+        lines.append(f"| {name[qq]} | {cell.get('duckdb','—')} | {cell.get('polars','—')} | {cell.get('spark','—')} | {best} |")
+    sp = st[(st["engine"] == "spark") & (st["scale"] == scale)]["t_init_median"].median()
+    mem = s.groupby("engine")["peak_tree_rss_mib_median"].max()
+    lines += ["", "Tempo = **trabalho do motor** (registrar a fonte + executar a consulta + materializar o resultado), "
+              "sem contar a inicialização do processo. Entre parênteses: quantas vezes mais lento que o mais rápido **na mesma consulta**.", "",
+              f"- Inicialização da sessão Spark (JVM + SparkSession), paga **a cada execução** em modo local: ~{sp:.1f} s (mediana).",
+              "- Pico de memória da árvore de processos (maior mediana entre as consultas): "
+              + ", ".join(f"{e} ~{mem[e]:.0f} MiB" for e in ENGINES if e in mem.index) + ".", "",
+              "Tabelas completas (todas as escalas, p25/p75, ponta a ponta, CPU): [results/key_results.md](results/key_results.md) "
+              "e [results/summary_table.md](results/summary_table.md).", "", README_END]
+    return "\n".join(lines)
+
+
+def update_readme(st):
+    p = ROOT / "README.md"
+    if not p.exists():
+        return
+    txt = p.read_text(encoding="utf-8")
+    if README_START in txt and README_END in txt:
+        a, b = txt.index(README_START), txt.index(README_END) + len(README_END)
+        p.write_text(txt[:a] + readme_block(st) + txt[b:], encoding="utf-8")
+
+
 def main():
     (RES / "charts").mkdir(parents=True, exist_ok=True)
     df = load()
@@ -246,6 +288,7 @@ def main():
     failures(df).to_csv(RES / "failures.csv", index=False)
     (RES / "summary_table.md").write_text(md_table(st), encoding="utf-8")
     (RES / "key_results.md").write_text(key_results(st), encoding="utf-8")
+    update_readme(st)
     made = []
     for scale in st["scale"].unique():
         made += [dotplot(st, scale, "wall_seconds", f"latency_end_to_end_{scale}.png", "End-to-end latency"),
