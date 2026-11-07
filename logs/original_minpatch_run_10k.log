@@ -1,0 +1,95 @@
+{'engine': 'duckdb', 'query': 'q1', 'repeat': 0, 'wall_seconds': 0.2552, 'peak_process_tree_rss_mb': 39.74, 'status': 'PASS', 'seconds': 0.02516499999910593, 'output_rows': 100}
+{'engine': 'polars', 'query': 'q1', 'repeat': 0, 'wall_seconds': 0.4392, 'peak_process_tree_rss_mb': 50.75, 'status': 'PASS', 'seconds': 0.1415273998863995, 'output_rows': 100}
+{'engine': 'spark', 'query': 'q1', 'repeat': 0, 'wall_seconds': 18.2138, 'peak_process_tree_rss_mb': 567.22, 'status': 'PASS', 'seconds': 17.74704229994677, 'output_rows': 100}
+{'engine': 'duckdb', 'query': 'q2', 'repeat': 0, 'wall_seconds': 0.3908, 'peak_process_tree_rss_mb': 37.85, 'status': 'PASS', 'seconds': 0.042553599923849106, 'output_rows': 20}
+{'engine': 'polars', 'query': 'q2', 'repeat': 0, 'wall_seconds': 0.5644, 'peak_process_tree_rss_mb': 61.62, 'status': 'PASS', 'seconds': 0.23183769988827407, 'output_rows': 20}
+{'engine': 'spark', 'query': 'q2', 'repeat': 0, 'wall_seconds': 21.2946, 'peak_process_tree_rss_mb': 567.4, 'status': 'PASS', 'seconds': 20.821657999884337, 'output_rows': 20}
+{'engine': 'duckdb', 'query': 'q3', 'repeat': 0, 'wall_seconds': 0.3923, 'peak_process_tree_rss_mb': 42.15, 'status': 'PASS', 'seconds': 0.0595874001737684, 'output_rows': 1000}
+{'engine': 'polars', 'query': 'q3', 'repeat': 0, 'wall_seconds': 0.5791, 'peak_process_tree_rss_mb': 58.95, 'status': 'PASS', 'seconds': 0.2122862001415342, 'output_rows': 1000}
+{'engine': 'spark', 'query': 'q3', 'repeat': 0, 'wall_seconds': 21.5078, 'peak_process_tree_rss_mb': 557.73, 'status': 'PASS', 'seconds': 20.994359500007704, 'output_rows': 1000}
+{'engine': 'duckdb', 'query': 'q4', 'repeat': 0, 'wall_seconds': 0.345, 'peak_process_tree_rss_mb': 40.01, 'status': 'PASS', 'seconds': 0.032130799954757094, 'output_rows': 1000}
+{'engine': 'polars', 'query': 'q4', 'repeat': 0, 'wall_seconds': 0.4519, 'peak_process_tree_rss_mb': 58.04, 'status': 'PASS', 'seconds': 0.17591529991477728, 'output_rows': 1000}
+{'engine': 'spark', 'query': 'q4', 'repeat': 0, 'wall_seconds': 18.5112, 'peak_process_tree_rss_mb': 548.91, 'status': 'PASS', 'seconds': 18.042043199995533, 'output_rows': 1000}
+{
+  "engine_equivalence": [
+    {
+      "query": "q1",
+      "engine": "duckdb",
+      "correct": true,
+      "reference_rows": 100
+    },
+    {
+      "query": "q1",
+      "engine": "polars",
+      "correct": true,
+      "reference_rows": 100
+    },
+    {
+      "query": "q1",
+      "engine": "spark",
+      "correct": true,
+      "reference_rows": 100
+    },
+    {
+      "query": "q2",
+      "engine": "duckdb",
+      "correct": true,
+      "reference_rows": 20
+    },
+    {
+      "query": "q2",
+      "engine": "polars",
+      "correct": true,
+      "reference_rows": 20
+    },
+    {
+      "query": "q2",
+      "engine": "spark",
+      "correct": true,
+      "reference_rows": 20
+    },
+    {
+      "query": "q3",
+      "engine": "duckdb",
+      "correct": true,
+      "reference_rows": 1000
+    },
+    {
+      "query": "q3",
+      "engine": "polars",
+      "correct": true,
+      "reference_rows": 1000
+    },
+    {
+      "query": "q3",
+      "engine": "spark",
+      "correct": true,
+      "reference_rows": 1000
+    },
+    {
+      "query": "q4",
+      "engine": "duckdb",
+      "correct": true,
+      "reference_rows": 1000
+    },
+    {
+      "query": "q4",
+      "engine": "polars",
+      "correct": true,
+      "reference_rows": 1000
+    },
+    {
+      "query": "q4",
+      "engine": "spark",
+      "correct": true,
+      "reference_rows": 1000
+    }
+  ],
+  "invariants": {
+    "input_count": true,
+    "q3_unique_customers": true,
+    "q4_sum_counts": true,
+    "q2_join_count": true
+  },
+  "all_pass": true
+}

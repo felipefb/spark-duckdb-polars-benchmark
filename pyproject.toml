@@ -1,0 +1,10 @@
+[project]
+name = "engine-bench"
+version = "1.0.0"
+description = "Reproducible, correctness-first local benchmark: Apache Spark (local mode) vs DuckDB vs Polars"
+requires-python = ">=3.11,<3.14"
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["src", "tests", "."]
+addopts = "-q --basetemp=tmp/pytest"

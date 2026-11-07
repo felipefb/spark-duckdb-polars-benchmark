@@ -1,0 +1,13 @@
+{
+  "python": "3.12.10 (tags/v3.12.10:0cc8128, Apr  8 2025, 12:21:36) [MSC v.1943 64 bit (AMD64)]",
+  "platform": "Windows-11-10.0.26200-SP0",
+  "cpu_count": 8,
+  "threads": 2,
+  "repeats": 1,
+  "versions": {
+    "duckdb": "1.4.1",
+    "polars": "1.35.2",
+    "pyspark": "4.0.1",
+    "psutil": "7.1.3"
+  }
+}

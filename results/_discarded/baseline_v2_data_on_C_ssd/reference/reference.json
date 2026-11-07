@@ -1,0 +1,34 @@
+{
+  "sales_content_sha256": "9343a18de25cbf4fb0b4911c90474999a72f63a25739e18731894e0bc98439fb",
+  "invariants": {
+    "total_rows": 1000000,
+    "q1_filtered_rows": 404809,
+    "noncancelled_rows": 919409,
+    "q2_unmatched_rows": 44217,
+    "sum_amount_all": 48828221699,
+    "distinct_customers_incl_null": 99994
+  },
+  "python_reference_seconds": 11.056,
+  "hashes": {
+    "q0": "99db4f5025cbcdb147bf2aad44479b71e2a711a910b17834863b46016bee1386",
+    "q1": "92bedc2b6707609011d9296cce5c70b84d2468967cc651a2b9d3fafb08511629",
+    "q2": "fcecb390d35983108670198e4a84e051fd2cdf9bb0c3e15e4ce75e26ed38ba27",
+    "q3": "5ead35d109ef567657f104f007b61321a2aa4196432b17eed7eb566ce4b4404a",
+    "q4": "91fa0ea12445a85abac43c6135de62135423025c63043d44cbe90d803e050fb8"
+  },
+  "row_counts": {
+    "q0": 1,
+    "q1": 100,
+    "q2": 21,
+    "q3": 99994,
+    "q4": 99994
+  },
+  "sqlite_seconds": 12.678,
+  "sqlite_agrees_with_python": {
+    "q0": true,
+    "q1": true,
+    "q2": true,
+    "q3": true,
+    "q4": true
+  }
+}

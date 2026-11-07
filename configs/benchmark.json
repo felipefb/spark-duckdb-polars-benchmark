@@ -1,0 +1,39 @@
+{
+  "seed": 20261106,
+  "threads": 4,
+  "warmup_rounds": 1,
+  "measured_rounds": 5,
+  "run_timeout_seconds": 1800,
+  "sampler_interval_seconds": 0.05,
+  "min_available_ram_gib": {"smoke": 1, "baseline": 3, "extension": 9},
+  "engines": ["duckdb", "polars", "spark"],
+  "queries": ["q0", "q1", "q2", "q3", "q4"],
+  "scales": {
+    "smoke": 10000,
+    "baseline": 1000000,
+    "extension": 10000000
+  },
+  "duckdb": {
+    "settings": {"preserve_insertion_order": "true"}
+  },
+  "polars": {
+    "env": {}
+  },
+  "spark": {
+    "conf": {
+      "spark.driver.memory": "6g",
+      "spark.sql.shuffle.partitions": "4",
+      "spark.sql.session.timeZone": "UTC",
+      "spark.ui.enabled": "false",
+      "spark.driver.host": "localhost",
+      "spark.driver.bindAddress": "127.0.0.1",
+      "spark.sql.adaptive.enabled": "true",
+      "spark.sql.ansi.enabled": "true"
+    }
+  },
+  "common_env": {
+    "TZ": "UTC",
+    "PYTHONHASHSEED": "0",
+    "SPARK_LOCAL_HOSTNAME": "localhost"
+  }
+}

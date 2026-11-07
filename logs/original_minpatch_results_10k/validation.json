@@ -1,0 +1,83 @@
+{
+  "engine_equivalence": [
+    {
+      "query": "q1",
+      "engine": "duckdb",
+      "correct": true,
+      "reference_rows": 100
+    },
+    {
+      "query": "q1",
+      "engine": "polars",
+      "correct": true,
+      "reference_rows": 100
+    },
+    {
+      "query": "q1",
+      "engine": "spark",
+      "correct": true,
+      "reference_rows": 100
+    },
+    {
+      "query": "q2",
+      "engine": "duckdb",
+      "correct": true,
+      "reference_rows": 20
+    },
+    {
+      "query": "q2",
+      "engine": "polars",
+      "correct": true,
+      "reference_rows": 20
+    },
+    {
+      "query": "q2",
+      "engine": "spark",
+      "correct": true,
+      "reference_rows": 20
+    },
+    {
+      "query": "q3",
+      "engine": "duckdb",
+      "correct": true,
+      "reference_rows": 1000
+    },
+    {
+      "query": "q3",
+      "engine": "polars",
+      "correct": true,
+      "reference_rows": 1000
+    },
+    {
+      "query": "q3",
+      "engine": "spark",
+      "correct": true,
+      "reference_rows": 1000
+    },
+    {
+      "query": "q4",
+      "engine": "duckdb",
+      "correct": true,
+      "reference_rows": 1000
+    },
+    {
+      "query": "q4",
+      "engine": "polars",
+      "correct": true,
+      "reference_rows": 1000
+    },
+    {
+      "query": "q4",
+      "engine": "spark",
+      "correct": true,
+      "reference_rows": 1000
+    }
+  ],
+  "invariants": {
+    "input_count": true,
+    "q3_unique_customers": true,
+    "q4_sum_counts": true,
+    "q2_join_count": true
+  },
+  "all_pass": true
+}

@@ -1,0 +1,27 @@
+{
+  "sales_content_sha256": "c32ab5e776476b14134c07624ccacacb37da832931e660f837ed2ba7b11f0199",
+  "invariants": {
+    "total_rows": 10000000,
+    "q1_filtered_rows": 4050380,
+    "noncancelled_rows": 9191573,
+    "q2_unmatched_rows": 441362,
+    "sum_amount_all": 487430417442,
+    "distinct_customers_incl_null": 999945
+  },
+  "python_reference_seconds": 101.407,
+  "hashes": {
+    "q0": "b761bd4254234c509c88dda8a3a105c2d8f55064466ee1958ab1257915f4cf50",
+    "q1": "c9f647997a84eed572d1192528f540f5f989df6ba8dadca241bb2eaaf754bd06",
+    "q2": "5195c93d6e038eb6e3f4144cacb11850e7db0bd5081a8009b37d32f2d8399364",
+    "q3": "62007d0ca3b71ffdaf277a27e4eb0ff9d2d37a836d13a7ad4433e3e839da5df4",
+    "q4": "c7c6e244f8f2f04b55aa716855cd594775cd69574b669e0876f38792b8636c5c"
+  },
+  "row_counts": {
+    "q0": 1,
+    "q1": 100,
+    "q2": 21,
+    "q3": 999945,
+    "q4": 999945
+  },
+  "sqlite_agrees_with_python": "not run (scale > 1000000 rows)"
+}

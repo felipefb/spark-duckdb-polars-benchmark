@@ -1,0 +1,34 @@
+{
+  "sales_content_sha256": "5855b22974a046799d5e86652c1d54b57ad62d45e41fcb5e2756949f7b50682b",
+  "invariants": {
+    "total_rows": 10000,
+    "q1_filtered_rows": 4118,
+    "noncancelled_rows": 9177,
+    "q2_unmatched_rows": 454,
+    "sum_amount_all": 487513783,
+    "distinct_customers_incl_null": 1001
+  },
+  "python_reference_seconds": 0.078,
+  "hashes": {
+    "q0": "a345b2dda34ffabaf77bddf336639ed2d0c7e6ba1b8dd315d620916d7e4e0b06",
+    "q1": "b5bdca42b53ef50e606c6a1a4ec9293f58e996bfbcaaaab87ac9b280333c5f4f",
+    "q2": "6a841380210fa857e2fba2812ec5f5629a20e5bbd2bf2384ee74b1b2ebf1d4a7",
+    "q3": "4f3d3b53b1880ca79767c46aea0c89ed01c4a885104cc5298c09bda4e1f4a7cc",
+    "q4": "fa098229f491a9ca275d7ad9ade3997b93c928580791feff6ba6118155588542"
+  },
+  "row_counts": {
+    "q0": 1,
+    "q1": 100,
+    "q2": 21,
+    "q3": 1001,
+    "q4": 1001
+  },
+  "sqlite_seconds": 0.083,
+  "sqlite_agrees_with_python": {
+    "q0": true,
+    "q1": true,
+    "q2": true,
+    "q3": true,
+    "q4": true
+  }
+}

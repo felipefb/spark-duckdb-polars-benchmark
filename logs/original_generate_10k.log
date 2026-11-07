@@ -1,0 +1,19 @@
+﻿..\..\.venv\Scripts\python : Traceback (most recent call last):
+No linha:1 caractere:540
++ ... _benchmark; ..\..\.venv\Scripts\python benchmark.py generate --rows 1 ...
++                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (Traceback (most recent call last)::String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+  File "C:\Dev\Linkedin\Spark_DuckDB_Polars\original\data_engine_benchmark\benchmark.py", line 139, in <module>
+    if args.action=='generate':generate(args.rows)
+                               ^^^^^^^^^^^^^^^^^^^
+  File "C:\Dev\Linkedin\Spark_DuckDB_Polars\original\data_engine_benchmark\benchmark.py", line 26, in generate
+    con.execute("COPY (SELECT i::BIGINT AS order_id, (i%GREATEST(1,CAST(?/10 AS BIGINT))+1)::BIGINT AS customer_id, 
+(i%100+1)::INTEGER AS store_id, (i%1000+1)::BIGINT AS product_id, (i%365)::INTEGER AS day_id, CASE WHEN i%11=0 THEN 
+'cancelled' WHEN i%7=0 THEN 'pending' ELSE 'paid' END AS status, ((i*37)%100000+100)::BIGINT AS amount_cents FROM 
+range(1,?+1) t(i)) TO ? (FORMAT PARQUET, ROW_GROUP_SIZE 122880)",[rows,rows,str(DATA/'sales.parquet')])
+_duckdb.InternalException: INTERNAL Error: Unsupported parameter type for filename: expected e.g. TARGET 'file.parquet'
+This error signals an assertion failure within DuckDB. This usually occurs due to unexpected conditions or errors in 
+the program's logic.
+For more information, see https://duckdb.org/docs/stable/dev/internal_errors

@@ -1,0 +1,5674 @@
+{
+  "scale": "baseline",
+  "input_rows": 1000000,
+  "reference": {
+    "sales_content_sha256": "9343a18de25cbf4fb0b4911c90474999a72f63a25739e18731894e0bc98439fb",
+    "invariants": {
+      "total_rows": 1000000,
+      "q1_filtered_rows": 404809,
+      "noncancelled_rows": 919409,
+      "q2_unmatched_rows": 44217,
+      "sum_amount_all": 48828221699,
+      "distinct_customers_incl_null": 99994
+    },
+    "python_reference_seconds": 11.056,
+    "hashes": {
+      "q0": "99db4f5025cbcdb147bf2aad44479b71e2a711a910b17834863b46016bee1386",
+      "q1": "92bedc2b6707609011d9296cce5c70b84d2468967cc651a2b9d3fafb08511629",
+      "q2": "fcecb390d35983108670198e4a84e051fd2cdf9bb0c3e15e4ce75e26ed38ba27",
+      "q3": "5ead35d109ef567657f104f007b61321a2aa4196432b17eed7eb566ce4b4404a",
+      "q4": "91fa0ea12445a85abac43c6135de62135423025c63043d44cbe90d803e050fb8"
+    },
+    "row_counts": {
+      "q0": 1,
+      "q1": 100,
+      "q2": 21,
+      "q3": 99994,
+      "q4": 99994
+    },
+    "sqlite_seconds": 12.678,
+    "sqlite_agrees_with_python": {
+      "q0": true,
+      "q1": true,
+      "q2": true,
+      "q3": true,
+      "q4": true
+    }
+  },
+  "summary": {
+    "duckdb/q0": {
+      "status": "PASS",
+      "runs": 6,
+      "pass_runs": 6,
+      "measured_pass_runs": 5,
+      "invalid_suspend_runs": 0
+    },
+    "duckdb/q1": {
+      "status": "PASS",
+      "runs": 6,
+      "pass_runs": 6,
+      "measured_pass_runs": 5,
+      "invalid_suspend_runs": 0
+    },
+    "duckdb/q2": {
+      "status": "PASS",
+      "runs": 6,
+      "pass_runs": 6,
+      "measured_pass_runs": 5,
+      "invalid_suspend_runs": 0
+    },
+    "duckdb/q3": {
+      "status": "PASS",
+      "runs": 6,
+      "pass_runs": 6,
+      "measured_pass_runs": 5,
+      "invalid_suspend_runs": 0
+    },
+    "duckdb/q4": {
+      "status": "PASS",
+      "runs": 6,
+      "pass_runs": 6,
+      "measured_pass_runs": 5,
+      "invalid_suspend_runs": 0
+    },
+    "polars/q0": {
+      "status": "PASS",
+      "runs": 6,
+      "pass_runs": 6,
+      "measured_pass_runs": 5,
+      "invalid_suspend_runs": 0
+    },
+    "polars/q1": {
+      "status": "PASS",
+      "runs": 6,
+      "pass_runs": 6,
+      "measured_pass_runs": 5,
+      "invalid_suspend_runs": 0
+    },
+    "polars/q2": {
+      "status": "PASS",
+      "runs": 6,
+      "pass_runs": 6,
+      "measured_pass_runs": 5,
+      "invalid_suspend_runs": 0
+    },
+    "polars/q3": {
+      "status": "PASS",
+      "runs": 6,
+      "pass_runs": 6,
+      "measured_pass_runs": 5,
+      "invalid_suspend_runs": 0
+    },
+    "polars/q4": {
+      "status": "PASS",
+      "runs": 6,
+      "pass_runs": 6,
+      "measured_pass_runs": 5,
+      "invalid_suspend_runs": 0
+    },
+    "spark/q0": {
+      "status": "PASS",
+      "runs": 6,
+      "pass_runs": 6,
+      "measured_pass_runs": 5,
+      "invalid_suspend_runs": 0
+    },
+    "spark/q1": {
+      "status": "PASS",
+      "runs": 6,
+      "pass_runs": 6,
+      "measured_pass_runs": 5,
+      "invalid_suspend_runs": 0
+    },
+    "spark/q2": {
+      "status": "PASS",
+      "runs": 6,
+      "pass_runs": 6,
+      "measured_pass_runs": 5,
+      "invalid_suspend_runs": 0
+    },
+    "spark/q3": {
+      "status": "PASS",
+      "runs": 6,
+      "pass_runs": 6,
+      "measured_pass_runs": 5,
+      "invalid_suspend_runs": 0
+    },
+    "spark/q4": {
+      "status": "PASS",
+      "runs": 6,
+      "pass_runs": 6,
+      "measured_pass_runs": 5,
+      "invalid_suspend_runs": 0
+    }
+  },
+  "all_pass": true,
+  "runs": [
+    {
+      "engine": "duckdb",
+      "query": "q0",
+      "round": 0,
+      "warmup": true,
+      "status": "PASS",
+      "checks": {
+        "schema": true,
+        "row_count": true,
+        "canonical_hash": true,
+        "exact_values": true,
+        "inv:n_rows_equals_input": true,
+        "inv:sum_amount_equals_input": true
+      },
+      "detail": {
+        "rows": 1,
+        "ref_rows": 1,
+        "hash": "99db4f5025cbcdb147bf2aad44479b71e2a711a910b17834863b46016bee1386",
+        "ref_hash": "99db4f5025cbcdb147bf2aad44479b71e2a711a910b17834863b46016bee1386",
+        "logical_schema": [
+          [
+            "n_rows",
+            "int64"
+          ],
+          [
+            "n_customer",
+            "int64"
+          ],
+          [
+            "sum_store",
+            "int64"
+          ],
+          [
+            "sum_product",
+            "int64"
+          ],
+          [
+            "sum_day",
+            "int64"
+          ],
+          [
+            "sum_status_len",
+            "int64"
+          ],
+          [
+            "sum_amount",
+            "int64"
+          ],
+          [
+            "sum_order",
+            "int64"
+          ]
+        ],
+        "physical_schema": [
+          [
+            "n_rows",
+            "int64"
+          ],
+          [
+            "n_customer",
+            "int64"
+          ],
+          [
+            "sum_store",
+            "int64"
+          ],
+          [
+            "sum_product",
+            "int64"
+          ],
+          [
+            "sum_day",
+            "int64"
+          ],
+          [
+            "sum_status_len",
+            "int64"
+          ],
+          [
+            "sum_amount",
+            "int64"
+          ],
+          [
+            "sum_order",
+            "int64"
+          ]
+        ]
+      }
+    },
+    {
+      "engine": "polars",
+      "query": "q0",
+      "round": 0,
+      "warmup": true,
+      "status": "PASS",
+      "checks": {
+        "schema": true,
+        "row_count": true,
+        "canonical_hash": true,
+        "exact_values": true,
+        "inv:n_rows_equals_input": true,
+        "inv:sum_amount_equals_input": true
+      },
+      "detail": {
+        "rows": 1,
+        "ref_rows": 1,
+        "hash": "99db4f5025cbcdb147bf2aad44479b71e2a711a910b17834863b46016bee1386",
+        "ref_hash": "99db4f5025cbcdb147bf2aad44479b71e2a711a910b17834863b46016bee1386",
+        "logical_schema": [
+          [
+            "n_rows",
+            "int64"
+          ],
+          [
+            "n_customer",
+            "int64"
+          ],
+          [
+            "sum_store",
+            "int64"
+          ],
+          [
+            "sum_product",
+            "int64"
+          ],
+          [
+            "sum_day",
+            "int64"
+          ],
+          [
+            "sum_status_len",
+            "int64"
+          ],
+          [
+            "sum_amount",
+            "int64"
+          ],
+          [
+            "sum_order",
+            "int64"
+          ]
+        ],
+        "physical_schema": [
+          [
+            "n_rows",
+            "int64"
+          ],
+          [
+            "n_customer",
+            "int64"
+          ],
+          [
+            "sum_store",
+            "int64"
+          ],
+          [
+            "sum_product",
+            "int64"
+          ],
+          [
+            "sum_day",
+            "int64"
+          ],
+          [
+            "sum_status_len",
+            "int64"
+          ],
+          [
+            "sum_amount",
+            "int64"
+          ],
+          [
+            "sum_order",
+            "int64"
+          ]
+        ]
+      }
+    },
+    {
+      "engine": "spark",
+      "query": "q0",
+      "round": 0,
+      "warmup": true,
+      "status": "PASS",
+      "checks": {
+        "schema": true,
+        "row_count": true,
+        "canonical_hash": true,
+        "exact_values": true,
+        "inv:n_rows_equals_input": true,
+        "inv:sum_amount_equals_input": true
+      },
+      "detail": {
+        "rows": 1,
+        "ref_rows": 1,
+        "hash": "99db4f5025cbcdb147bf2aad44479b71e2a711a910b17834863b46016bee1386",
+        "ref_hash": "99db4f5025cbcdb147bf2aad44479b71e2a711a910b17834863b46016bee1386",
+        "logical_schema": [
+          [
+            "n_rows",
+            "int64"
+          ],
+          [
+            "n_customer",
+            "int64"
+          ],
+          [
+            "sum_store",
+            "int64"
+          ],
+          [
+            "sum_product",
+            "int64"
+          ],
+          [
+            "sum_day",
+            "int64"
+          ],
+          [
+            "sum_status_len",
+            "int64"
+          ],
+          [
+            "sum_amount",
+            "int64"
+          ],
+          [
+            "sum_order",
+            "int64"
+          ]
+        ],
+        "physical_schema": [
+          [
+            "n_rows",
+            "int64"
+          ],
+          [
+            "n_customer",
+            "int64"
+          ],
+          [
+            "sum_store",
+            "int64"
+          ],
+          [
+            "sum_product",
+            "int64"
+          ],
+          [
+            "sum_day",
+            "int64"
+          ],
+          [
+            "sum_status_len",
+            "int64"
+          ],
+          [
+            "sum_amount",
+            "int64"
+          ],
+          [
+            "sum_order",
+            "int64"
+          ]
+        ]
+      }
+    },
+    {
+      "engine": "duckdb",
+      "query": "q1",
+      "round": 0,
+      "warmup": true,
+      "status": "PASS",
+      "checks": {
+        "schema": true,
+        "row_count": true,
+        "keys_unique": true,
+        "key_set": true,
+        "canonical_hash": true,
+        "exact_values": true,
+        "inv:sum_n_equals_filtered_rows": true
+      },
+      "detail": {
+        "rows": 100,
+        "ref_rows": 100,
+        "hash": "92bedc2b6707609011d9296cce5c70b84d2468967cc651a2b9d3fafb08511629",
+        "ref_hash": "92bedc2b6707609011d9296cce5c70b84d2468967cc651a2b9d3fafb08511629",
+        "logical_schema": [
+          [
+            "store_id",
+            "int32"
+          ],
+          [
+            "status",
+            "string"
+          ],
+          [
+            "n",
+            "int64"
+          ],
+          [
+            "total_cents",
+            "int64"
+          ]
+        ],
+        "physical_schema": [
+          [
+            "store_id",
+            "int32"
+          ],
+          [
+            "status",
+            "string"
+          ],
+          [
+            "n",
+            "int64"
+          ],
+          [
+            "total_cents",
+            "int64"
+          ]
+        ]
+      }
+    },
+    {
+      "engine": "polars",
+      "query": "q1",
+      "round": 0,
+      "warmup": true,
+      "status": "PASS",
+      "checks": {
+        "schema": true,
+        "row_count": true,
+        "keys_unique": true,
+        "key_set": true,
+        "canonical_hash": true,
+        "exact_values": true,
+        "inv:sum_n_equals_filtered_rows": true
+      },
+      "detail": {
+        "rows": 100,
+        "ref_rows": 100,
+        "hash": "92bedc2b6707609011d9296cce5c70b84d2468967cc651a2b9d3fafb08511629",
+        "ref_hash": "92bedc2b6707609011d9296cce5c70b84d2468967cc651a2b9d3fafb08511629",
+        "logical_schema": [
+          [
+            "store_id",
+            "int32"
+          ],
+          [
+            "status",
+            "string"
+          ],
+          [
+            "n",
+            "int64"
+          ],
+          [
+            "total_cents",
+            "int64"
+          ]
+        ],
+        "physical_schema": [
+          [
+            "store_id",
+            "int32"
+          ],
+          [
+            "status",
+            "large_string"
+          ],
+          [
+            "n",
+            "int64"
+          ],
+          [
+            "total_cents",
+            "int64"
+          ]
+        ]
+      }
+    },
+    {
+      "engine": "spark",
+      "query": "q1",
+      "round": 0,
+      "warmup": true,
+      "status": "PASS",
+      "checks": {
+        "schema": true,
+        "row_count": true,
+        "keys_unique": true,
+        "key_set": true,
+        "canonical_hash": true,
+        "exact_values": true,
+        "inv:sum_n_equals_filtered_rows": true
+      },
+      "detail": {
+        "rows": 100,
+        "ref_rows": 100,
+        "hash": "92bedc2b6707609011d9296cce5c70b84d2468967cc651a2b9d3fafb08511629",
+        "ref_hash": "92bedc2b6707609011d9296cce5c70b84d2468967cc651a2b9d3fafb08511629",
+        "logical_schema": [
+          [
+            "store_id",
+            "int32"
+          ],
+          [
+            "status",
+            "string"
+          ],
+          [
+            "n",
+            "int64"
+          ],
+          [
+            "total_cents",
+            "int64"
+          ]
+        ],
+        "physical_schema": [
+          [
+            "store_id",
+            "int32"
+          ],
+          [
+            "status",
+            "string"
+          ],
+          [
+            "n",
+            "int64"
+          ],
+          [
+            "total_cents",
+            "int64"
+          ]
+        ]
+      }
+    },
+    {
+      "engine": "duckdb",
+      "query": "q2",
+      "round": 0,
+      "warmup": true,
+      "status": "PASS",
+      "checks": {
+        "schema": true,
+        "row_count": true,
+        "keys_unique": true,
+        "key_set": true,
+        "canonical_hash": true,
+        "exact_values": true,
+        "inv:join_reconciliation(matched+unmatched=noncancelled)": true
+      },
+      "detail": {
+        "rows": 21,
+        "ref_rows": 21,
+        "hash": "fcecb390d35983108670198e4a84e051fd2cdf9bb0c3e15e4ce75e26ed38ba27",
+        "ref_hash": "fcecb390d35983108670198e4a84e051fd2cdf9bb0c3e15e4ce75e26ed38ba27",
+        "logical_schema": [
+          [
+            "category",
+            "string"
+          ],
+          [
+            "n",
+            "int64"
+          ],
+          [
+            "total_cents",
+            "int64"
+          ]
+        ],
+        "physical_schema": [
+          [
+            "category",
+            "string"
+          ],
+          [
+            "n",
+            "int64"
+          ],
+          [
+            "total_cents",
+            "int64"
+          ]
+        ]
+      }
+    },
+    {
+      "engine": "polars",
+      "query": "q2",
+      "round": 0,
+      "warmup": true,
+      "status": "PASS",
+      "checks": {
+        "schema": true,
+        "row_count": true,
+        "keys_unique": true,
+        "key_set": true,
+        "canonical_hash": true,
+        "exact_values": true,
+        "inv:join_reconciliation(matched+unmatched=noncancelled)": true
+      },
+      "detail": {
+        "rows": 21,
+        "ref_rows": 21,
+        "hash": "fcecb390d35983108670198e4a84e051fd2cdf9bb0c3e15e4ce75e26ed38ba27",
+        "ref_hash": "fcecb390d35983108670198e4a84e051fd2cdf9bb0c3e15e4ce75e26ed38ba27",
+        "logical_schema": [
+          [
+            "category",
+            "string"
+          ],
+          [
+            "n",
+            "int64"
+          ],
+          [
+            "total_cents",
+            "int64"
+          ]
+        ],
+        "physical_schema": [
+          [
+            "category",
+            "large_string"
+          ],
+          [
+            "n",
+            "int64"
+          ],
+          [
+            "total_cents",
+            "int64"
+          ]
+        ]
+      }
+    },
+    {
+      "engine": "spark",
+      "query": "q2",
+      "round": 0,
+      "warmup": true,
+      "status": "PASS",
+      "checks": {
+        "schema": true,
+        "row_count": true,
+        "keys_unique": true,
+        "key_set": true,
+        "canonical_hash": true,
+        "exact_values": true,
+        "inv:join_reconciliation(matched+unmatched=noncancelled)": true
+      },
+      "detail": {
+        "rows": 21,
+        "ref_rows": 21,
+        "hash": "fcecb390d35983108670198e4a84e051fd2cdf9bb0c3e15e4ce75e26ed38ba27",
+        "ref_hash": "fcecb390d35983108670198e4a84e051fd2cdf9bb0c3e15e4ce75e26ed38ba27",
+        "logical_schema": [
+          [
+            "category",
+            "string"
+          ],
+          [
+            "n",
+            "int64"
+          ],
+          [
+            "total_cents",
+            "int64"
+          ]
+        ],
+        "physical_schema": [
+          [
+            "category",
+            "string"
+          ],
+          [
+            "n",
+            "int64"
+          ],
+          [
+            "total_cents",
+            "int64"
+          ]
+        ]
+      }
+    },
+    {
+      "engine": "duckdb",
+      "query": "q3",
+      "round": 0,
+      "warmup": true,
+      "status": "PASS",
+      "checks": {
+        "schema": true,
+        "row_count": true,
+        "keys_unique": true,
+        "key_set": true,
+        "canonical_hash": true,
+        "exact_values": true,
+        "inv:one_row_per_customer": true
+      },
+      "detail": {
+        "rows": 99994,
+        "ref_rows": 99994,
+        "hash": "5ead35d109ef567657f104f007b61321a2aa4196432b17eed7eb566ce4b4404a",
+        "ref_hash": "5ead35d109ef567657f104f007b61321a2aa4196432b17eed7eb566ce4b4404a",
+        "logical_schema": [
+          [
+            "customer_id",
+            "int64"
+          ],
+          [
+            "order_id",
+            "int64"
+          ],
+          [
+            "day_id",
+            "int32"
+          ],
+          [
+            "amount_cents",
+            "int64"
+          ]
+        ],
+        "physical_schema": [
+          [
+            "customer_id",
+            "int64"
+          ],
+          [
+            "order_id",
+            "int64"
+          ],
+          [
+            "day_id",
+            "int32"
+          ],
+          [
+            "amount_cents",
+            "int64"
+          ]
+        ]
+      }
+    },
+    {
+      "engine": "polars",
+      "query": "q3",
+      "round": 0,
+      "warmup": true,
+      "status": "PASS",
+      "checks": {
+        "schema": true,
+        "row_count": true,
+        "keys_unique": true,
+        "key_set": true,
+        "canonical_hash": true,
+        "exact_values": true,
+        "inv:one_row_per_customer": true
+      },
+      "detail": {
+        "rows": 99994,
+        "ref_rows": 99994,
+        "hash": "5ead35d109ef567657f104f007b61321a2aa4196432b17eed7eb566ce4b4404a",
+        "ref_hash": "5ead35d109ef567657f104f007b61321a2aa4196432b17eed7eb566ce4b4404a",
+        "logical_schema": [
+          [
+            "customer_id",
+            "int64"
+          ],
+          [
+            "order_id",
+            "int64"
+          ],
+          [
+            "day_id",
+            "int32"
+          ],
+          [
+            "amount_cents",
+            "int64"
+          ]
+        ],
+        "physical_schema": [
+          [
+            "customer_id",
+            "int64"
+          ],
+          [
+            "order_id",
+            "int64"
+          ],
+          [
+            "day_id",
+            "int32"
+          ],
+          [
+            "amount_cents",
+            "int64"
+          ]
+        ]
+      }
+    },
+    {
+      "engine": "spark",
+      "query": "q3",
+      "round": 0,
+      "warmup": true,
+      "status": "PASS",
+      "checks": {
+        "schema": true,
+        "row_count": true,
+        "keys_unique": true,
+        "key_set": true,
+        "canonical_hash": true,
+        "exact_values": true,
+        "inv:one_row_per_customer": true
+      },
+      "detail": {
+        "rows": 99994,
+        "ref_rows": 99994,
+        "hash": "5ead35d109ef567657f104f007b61321a2aa4196432b17eed7eb566ce4b4404a",
+        "ref_hash": "5ead35d109ef567657f104f007b61321a2aa4196432b17eed7eb566ce4b4404a",
+        "logical_schema": [
+          [
+            "customer_id",
+            "int64"
+          ],
+          [
+            "order_id",
+            "int64"
+          ],
+          [
+            "day_id",
+            "int32"
+          ],
+          [
+            "amount_cents",
+            "int64"
+          ]
+        ],
+        "physical_schema": [
+          [
+            "customer_id",
+            "int64"
+          ],
+          [
+            "order_id",
+            "int64"
+          ],
+          [
+            "day_id",
+            "int32"
+          ],
+          [
+            "amount_cents",
+            "int64"
+          ]
+        ]
+      }
+    },
+    {
+      "engine": "duckdb",
+      "query": "q4",
+      "round": 0,
+      "warmup": true,
+      "status": "PASS",
+      "checks": {
+        "schema": true,
+        "row_count": true,
+        "keys_unique": true,
+        "key_set": true,
+        "canonical_hash": true,
+        "exact_values": true,
+        "inv:sum_n_equals_input_rows": true,
+        "inv:sum_total_equals_input_amount": true,
+        "inv:groups_equal_distinct_customers": true
+      },
+      "detail": {
+        "rows": 99994,
+        "ref_rows": 99994,
+        "hash": "91fa0ea12445a85abac43c6135de62135423025c63043d44cbe90d803e050fb8",
+        "ref_hash": "91fa0ea12445a85abac43c6135de62135423025c63043d44cbe90d803e050fb8",
+        "logical_schema": [
+          [
+            "customer_id",
+            "int64"
+          ],
+          [
+            "n",
+            "int64"
+          ],
+          [
+            "total_cents",
+            "int64"
+          ]
+        ],
+        "physical_schema": [
+          [
+            "customer_id",
+            "int64"
+          ],
+          [
+            "n",
+            "int64"
+          ],
+          [
+            "total_cents",
+            "int64"
+          ]
+        ]
+      }
+    },
+    {
+      "engine": "polars",
+      "query": "q4",
+      "round": 0,
+      "warmup": true,
+      "status": "PASS",
+      "checks": {
+        "schema": true,
+        "row_count": true,
+        "keys_unique": true,
+        "key_set": true,
+        "canonical_hash": true,
+        "exact_values": true,
+        "inv:sum_n_equals_input_rows": true,
+        "inv:sum_total_equals_input_amount": true,
+        "inv:groups_equal_distinct_customers": true
+      },
+      "detail": {
+        "rows": 99994,
+        "ref_rows": 99994,
+        "hash": "91fa0ea12445a85abac43c6135de62135423025c63043d44cbe90d803e050fb8",
+        "ref_hash": "91fa0ea12445a85abac43c6135de62135423025c63043d44cbe90d803e050fb8",
+        "logical_schema": [
+          [
+            "customer_id",
+            "int64"
+          ],
+          [
+            "n",
+            "int64"
+          ],
+          [
+            "total_cents",
+            "int64"
+          ]
+        ],
+        "physical_schema": [
+          [
+            "customer_id",
+            "int64"
+          ],
+          [
+            "n",
+            "int64"
+          ],
+          [
+            "total_cents",
+            "int64"
+          ]
+        ]
+      }
+    },
+    {
+      "engine": "spark",
+      "query": "q4",
+      "round": 0,
+      "warmup": true,
+      "status": "PASS",
+      "checks": {
+        "schema": true,
+        "row_count": true,
+        "keys_unique": true,
+        "key_set": true,
+        "canonical_hash": true,
+        "exact_values": true,
+        "inv:sum_n_equals_input_rows": true,
+        "inv:sum_total_equals_input_amount": true,
+        "inv:groups_equal_distinct_customers": true
+      },
+      "detail": {
+        "rows": 99994,
+        "ref_rows": 99994,
+        "hash": "91fa0ea12445a85abac43c6135de62135423025c63043d44cbe90d803e050fb8",
+        "ref_hash": "91fa0ea12445a85abac43c6135de62135423025c63043d44cbe90d803e050fb8",
+        "logical_schema": [
+          [
+            "customer_id",
+            "int64"
+          ],
+          [
+            "n",
+            "int64"
+          ],
+          [
+            "total_cents",
+            "int64"
+          ]
+        ],
+        "physical_schema": [
+          [
+            "customer_id",
+            "int64"
+          ],
+          [
+            "n",
+            "int64"
+          ],
+          [
+            "total_cents",
+            "int64"
+          ]
+        ]
+      }
+    },
+    {
+      "engine": "duckdb",
+      "query": "q1",
+      "round": 1,
+      "warmup": false,
+      "status": "PASS",
+      "checks": {
+        "schema": true,
+        "row_count": true,
+        "keys_unique": true,
+        "key_set": true,
+        "canonical_hash": true,
+        "exact_values": true,
+        "inv:sum_n_equals_filtered_rows": true
+      },
+      "detail": {
+        "rows": 100,
+        "ref_rows": 100,
+        "hash": "92bedc2b6707609011d9296cce5c70b84d2468967cc651a2b9d3fafb08511629",
+        "ref_hash": "92bedc2b6707609011d9296cce5c70b84d2468967cc651a2b9d3fafb08511629",
+        "logical_schema": [
+          [
+            "store_id",
+            "int32"
+          ],
+          [
+            "status",
+            "string"
+          ],
+          [
+            "n",
+            "int64"
+          ],
+          [
+            "total_cents",
+            "int64"
+          ]
+        ],
+        "physical_schema": [
+          [
+            "store_id",
+            "int32"
+          ],
+          [
+            "status",
+            "string"
+          ],
+          [
+            "n",
+            "int64"
+          ],
+          [
+            "total_cents",
+            "int64"
+          ]
+        ]
+      }
+    },
+    {
+      "engine": "spark",
+      "query": "q1",
+      "round": 1,
+      "warmup": false,
+      "status": "PASS",
+      "checks": {
+        "schema": true,
+        "row_count": true,
+        "keys_unique": true,
+        "key_set": true,
+        "canonical_hash": true,
+        "exact_values": true,
+        "inv:sum_n_equals_filtered_rows": true
+      },
+      "detail": {
+        "rows": 100,
+        "ref_rows": 100,
+        "hash": "92bedc2b6707609011d9296cce5c70b84d2468967cc651a2b9d3fafb08511629",
+        "ref_hash": "92bedc2b6707609011d9296cce5c70b84d2468967cc651a2b9d3fafb08511629",
+        "logical_schema": [
+          [
+            "store_id",
+            "int32"
+          ],
+          [
+            "status",
+            "string"
+          ],
+          [
+            "n",
+            "int64"
+          ],
+          [
+            "total_cents",
+            "int64"
+          ]
+        ],
+        "physical_schema": [
+          [
+            "store_id",
+            "int32"
+          ],
+          [
+            "status",
+            "string"
+          ],
+          [
+            "n",
+            "int64"
+          ],
+          [
+            "total_cents",
+            "int64"
+          ]
+        ]
+      }
+    },
+    {
+      "engine": "polars",
+      "query": "q1",
+      "round": 1,
+      "warmup": false,
+      "status": "PASS",
+      "checks": {
+        "schema": true,
+        "row_count": true,
+        "keys_unique": true,
+        "key_set": true,
+        "canonical_hash": true,
+        "exact_values": true,
+        "inv:sum_n_equals_filtered_rows": true
+      },
+      "detail": {
+        "rows": 100,
+        "ref_rows": 100,
+        "hash": "92bedc2b6707609011d9296cce5c70b84d2468967cc651a2b9d3fafb08511629",
+        "ref_hash": "92bedc2b6707609011d9296cce5c70b84d2468967cc651a2b9d3fafb08511629",
+        "logical_schema": [
+          [
+            "store_id",
+            "int32"
+          ],
+          [
+            "status",
+            "string"
+          ],
+          [
+            "n",
+            "int64"
+          ],
+          [
+            "total_cents",
+            "int64"
+          ]
+        ],
+        "physical_schema": [
+          [
+            "store_id",
+            "int32"
+          ],
+          [
+            "status",
+            "large_string"
+          ],
+          [
+            "n",
+            "int64"
+          ],
+          [
+            "total_cents",
+            "int64"
+          ]
+        ]
+      }
+    },
+    {
+      "engine": "duckdb",
+      "query": "q2",
+      "round": 1,
+      "warmup": false,
+      "status": "PASS",
+      "checks": {
+        "schema": true,
+        "row_count": true,
+        "keys_unique": true,
+        "key_set": true,
+        "canonical_hash": true,
+        "exact_values": true,
+        "inv:join_reconciliation(matched+unmatched=noncancelled)": true
+      },
+      "detail": {
+        "rows": 21,
+        "ref_rows": 21,
+        "hash": "fcecb390d35983108670198e4a84e051fd2cdf9bb0c3e15e4ce75e26ed38ba27",
+        "ref_hash": "fcecb390d35983108670198e4a84e051fd2cdf9bb0c3e15e4ce75e26ed38ba27",
+        "logical_schema": [
+          [
+            "category",
+            "string"
+          ],
+          [
+            "n",
+            "int64"
+          ],
+          [
+            "total_cents",
+            "int64"
+          ]
+        ],
+        "physical_schema": [
+          [
+            "category",
+            "string"
+          ],
+          [
+            "n",
+            "int64"
+          ],
+          [
+            "total_cents",
+            "int64"
+          ]
+        ]
+      }
+    },
+    {
+      "engine": "spark",
+      "query": "q2",
+      "round": 1,
+      "warmup": false,
+      "status": "PASS",
+      "checks": {
+        "schema": true,
+        "row_count": true,
+        "keys_unique": true,
+        "key_set": true,
+        "canonical_hash": true,
+        "exact_values": true,
+        "inv:join_reconciliation(matched+unmatched=noncancelled)": true
+      },
+      "detail": {
+        "rows": 21,
+        "ref_rows": 21,
+        "hash": "fcecb390d35983108670198e4a84e051fd2cdf9bb0c3e15e4ce75e26ed38ba27",
+        "ref_hash": "fcecb390d35983108670198e4a84e051fd2cdf9bb0c3e15e4ce75e26ed38ba27",
+        "logical_schema": [
+          [
+            "category",
+            "string"
+          ],
+          [
+            "n",
+            "int64"
+          ],
+          [
+            "total_cents",
+            "int64"
+          ]
+        ],
+        "physical_schema": [
+          [
+            "category",
+            "string"
+          ],
+          [
+            "n",
+            "int64"
+          ],
+          [
+            "total_cents",
+            "int64"
+          ]
+        ]
+      }
+    },
+    {
+      "engine": "polars",
+      "query": "q2",
+      "round": 1,
+      "warmup": false,
+      "status": "PASS",
+      "checks": {
+        "schema": true,
+        "row_count": true,
+        "keys_unique": true,
+        "key_set": true,
+        "canonical_hash": true,
+        "exact_values": true,
+        "inv:join_reconciliation(matched+unmatched=noncancelled)": true
+      },
+      "detail": {
+        "rows": 21,
+        "ref_rows": 21,
+        "hash": "fcecb390d35983108670198e4a84e051fd2cdf9bb0c3e15e4ce75e26ed38ba27",
+        "ref_hash": "fcecb390d35983108670198e4a84e051fd2cdf9bb0c3e15e4ce75e26ed38ba27",
+        "logical_schema": [
+          [
+            "category",
+            "string"
+          ],
+          [
+            "n",
+            "int64"
+          ],
+          [
+            "total_cents",
+            "int64"
+          ]
+        ],
+        "physical_schema": [
+          [
+            "category",
+            "large_string"
+          ],
+          [
+            "n",
+            "int64"
+          ],
+          [
+            "total_cents",
+            "int64"
+          ]
+        ]
+      }
+    },
+    {
+      "engine": "duckdb",
+      "query": "q3",
+      "round": 1,
+      "warmup": false,
+      "status": "PASS",
+      "checks": {
+        "schema": true,
+        "row_count": true,
+        "keys_unique": true,
+        "key_set": true,
+        "canonical_hash": true,
+        "exact_values": true,
+        "inv:one_row_per_customer": true
+      },
+      "detail": {
+        "rows": 99994,
+        "ref_rows": 99994,
+        "hash": "5ead35d109ef567657f104f007b61321a2aa4196432b17eed7eb566ce4b4404a",
+        "ref_hash": "5ead35d109ef567657f104f007b61321a2aa4196432b17eed7eb566ce4b4404a",
+        "logical_schema": [
+          [
+            "customer_id",
+            "int64"
+          ],
+          [
+            "order_id",
+            "int64"
+          ],
+          [
+            "day_id",
+            "int32"
+          ],
+          [
+            "amount_cents",
+            "int64"
+          ]
+        ],
+        "physical_schema": [
+          [
+            "customer_id",
+            "int64"
+          ],
+          [
+            "order_id",
+            "int64"
+          ],
+          [
+            "day_id",
+            "int32"
+          ],
+          [
+            "amount_cents",
+            "int64"
+          ]
+        ]
+      }
+    },
+    {
+      "engine": "spark",
+      "query": "q3",
+      "round": 1,
+      "warmup": false,
+      "status": "PASS",
+      "checks": {
+        "schema": true,
+        "row_count": true,
+        "keys_unique": true,
+        "key_set": true,
+        "canonical_hash": true,
+        "exact_values": true,
+        "inv:one_row_per_customer": true
+      },
+      "detail": {
+        "rows": 99994,
+        "ref_rows": 99994,
+        "hash": "5ead35d109ef567657f104f007b61321a2aa4196432b17eed7eb566ce4b4404a",
+        "ref_hash": "5ead35d109ef567657f104f007b61321a2aa4196432b17eed7eb566ce4b4404a",
+        "logical_schema": [
+          [
+            "customer_id",
+            "int64"
+          ],
+          [
+            "order_id",
+            "int64"
+          ],
+          [
+            "day_id",
+            "int32"
+          ],
+          [
+            "amount_cents",
+            "int64"
+          ]
+        ],
+        "physical_schema": [
+          [
+            "customer_id",
+            "int64"
+          ],
+          [
+            "order_id",
+            "int64"
+          ],
+          [
+            "day_id",
+            "int32"
+          ],
+          [
+            "amount_cents",
+            "int64"
+          ]
+        ]
+      }
+    },
+    {
+      "engine": "polars",
+      "query": "q3",
+      "round": 1,
+      "warmup": false,
+      "status": "PASS",
+      "checks": {
+        "schema": true,
+        "row_count": true,
+        "keys_unique": true,
+        "key_set": true,
+        "canonical_hash": true,
+        "exact_values": true,
+        "inv:one_row_per_customer": true
+      },
+      "detail": {
+        "rows": 99994,
+        "ref_rows": 99994,
+        "hash": "5ead35d109ef567657f104f007b61321a2aa4196432b17eed7eb566ce4b4404a",
+        "ref_hash": "5ead35d109ef567657f104f007b61321a2aa4196432b17eed7eb566ce4b4404a",
+        "logical_schema": [
+          [
+            "customer_id",
+            "int64"
+          ],
+          [
+            "order_id",
+            "int64"
+          ],
+          [
+            "day_id",
+            "int32"
+          ],
+          [
+            "amount_cents",
+            "int64"
+          ]
+        ],
+        "physical_schema": [
+          [
+            "customer_id",
+            "int64"
+          ],
+          [
+            "order_id",
+            "int64"
+          ],
+          [
+            "day_id",
+            "int32"
+          ],
+          [
+            "amount_cents",
+            "int64"
+          ]
+        ]
+      }
+    },
+    {
+      "engine": "duckdb",
+      "query": "q4",
+      "round": 1,
+      "warmup": false,
+      "status": "PASS",
+      "checks": {
+        "schema": true,
+        "row_count": true,
+        "keys_unique": true,
+        "key_set": true,
+        "canonical_hash": true,
+        "exact_values": true,
+        "inv:sum_n_equals_input_rows": true,
+        "inv:sum_total_equals_input_amount": true,
+        "inv:groups_equal_distinct_customers": true
+      },
+      "detail": {
+        "rows": 99994,
+        "ref_rows": 99994,
+        "hash": "91fa0ea12445a85abac43c6135de62135423025c63043d44cbe90d803e050fb8",
+        "ref_hash": "91fa0ea12445a85abac43c6135de62135423025c63043d44cbe90d803e050fb8",
+        "logical_schema": [
+          [
+            "customer_id",
+            "int64"
+          ],
+          [
+            "n",
+            "int64"
+          ],
+          [
+            "total_cents",
+            "int64"
+          ]
+        ],
+        "physical_schema": [
+          [
+            "customer_id",
+            "int64"
+          ],
+          [
+            "n",
+            "int64"
+          ],
+          [
+            "total_cents",
+            "int64"
+          ]
+        ]
+      }
+    },
+    {
+      "engine": "spark",
+      "query": "q4",
+      "round": 1,
+      "warmup": false,
+      "status": "PASS",
+      "checks": {
+        "schema": true,
+        "row_count": true,
+        "keys_unique": true,
+        "key_set": true,
+        "canonical_hash": true,
+        "exact_values": true,
+        "inv:sum_n_equals_input_rows": true,
+        "inv:sum_total_equals_input_amount": true,
+        "inv:groups_equal_distinct_customers": true
+      },
+      "detail": {
+        "rows": 99994,
+        "ref_rows": 99994,
+        "hash": "91fa0ea12445a85abac43c6135de62135423025c63043d44cbe90d803e050fb8",
+        "ref_hash": "91fa0ea12445a85abac43c6135de62135423025c63043d44cbe90d803e050fb8",
+        "logical_schema": [
+          [
+            "customer_id",
+            "int64"
+          ],
+          [
+            "n",
+            "int64"
+          ],
+          [
+            "total_cents",
+            "int64"
+          ]
+        ],
+        "physical_schema": [
+          [
+            "customer_id",
+            "int64"
+          ],
+          [
+            "n",
+            "int64"
+          ],
+          [
+            "total_cents",
+            "int64"
+          ]
+        ]
+      }
+    },
+    {
+      "engine": "polars",
+      "query": "q4",
+      "round": 1,
+      "warmup": false,
+      "status": "PASS",
+      "checks": {
+        "schema": true,
+        "row_count": true,
+        "keys_unique": true,
+        "key_set": true,
+        "canonical_hash": true,
+        "exact_values": true,
+        "inv:sum_n_equals_input_rows": true,
+        "inv:sum_total_equals_input_amount": true,
+        "inv:groups_equal_distinct_customers": true
+      },
+      "detail": {
+        "rows": 99994,
+        "ref_rows": 99994,
+        "hash": "91fa0ea12445a85abac43c6135de62135423025c63043d44cbe90d803e050fb8",
+        "ref_hash": "91fa0ea12445a85abac43c6135de62135423025c63043d44cbe90d803e050fb8",
+        "logical_schema": [
+          [
+            "customer_id",
+            "int64"
+          ],
+          [
+            "n",
+            "int64"
+          ],
+          [
+            "total_cents",
+            "int64"
+          ]
+        ],
+        "physical_schema": [
+          [
+            "customer_id",
+            "int64"
+          ],
+          [
+            "n",
+            "int64"
+          ],
+          [
+            "total_cents",
+            "int64"
+          ]
+        ]
+      }
+    },
+    {
+      "engine": "duckdb",
+      "query": "q0",
+      "round": 1,
+      "warmup": false,
+      "status": "PASS",
+      "checks": {
+        "schema": true,
+        "row_count": true,
+        "canonical_hash": true,
+        "exact_values": true,
+        "inv:n_rows_equals_input": true,
+        "inv:sum_amount_equals_input": true
+      },
+      "detail": {
+        "rows": 1,
+        "ref_rows": 1,
+        "hash": "99db4f5025cbcdb147bf2aad44479b71e2a711a910b17834863b46016bee1386",
+        "ref_hash": "99db4f5025cbcdb147bf2aad44479b71e2a711a910b17834863b46016bee1386",
+        "logical_schema": [
+          [
+            "n_rows",
+            "int64"
+          ],
+          [
+            "n_customer",
+            "int64"
+          ],
+          [
+            "sum_store",
+            "int64"
+          ],
+          [
+            "sum_product",
+            "int64"
+          ],
+          [
+            "sum_day",
+            "int64"
+          ],
+          [
+            "sum_status_len",
+            "int64"
+          ],
+          [
+            "sum_amount",
+            "int64"
+          ],
+          [
+            "sum_order",
+            "int64"
+          ]
+        ],
+        "physical_schema": [
+          [
+            "n_rows",
+            "int64"
+          ],
+          [
+            "n_customer",
+            "int64"
+          ],
+          [
+            "sum_store",
+            "int64"
+          ],
+          [
+            "sum_product",
+            "int64"
+          ],
+          [
+            "sum_day",
+            "int64"
+          ],
+          [
+            "sum_status_len",
+            "int64"
+          ],
+          [
+            "sum_amount",
+            "int64"
+          ],
+          [
+            "sum_order",
+            "int64"
+          ]
+        ]
+      }
+    },
+    {
+      "engine": "spark",
+      "query": "q0",
+      "round": 1,
+      "warmup": false,
+      "status": "PASS",
+      "checks": {
+        "schema": true,
+        "row_count": true,
+        "canonical_hash": true,
+        "exact_values": true,
+        "inv:n_rows_equals_input": true,
+        "inv:sum_amount_equals_input": true
+      },
+      "detail": {
+        "rows": 1,
+        "ref_rows": 1,
+        "hash": "99db4f5025cbcdb147bf2aad44479b71e2a711a910b17834863b46016bee1386",
+        "ref_hash": "99db4f5025cbcdb147bf2aad44479b71e2a711a910b17834863b46016bee1386",
+        "logical_schema": [
+          [
+            "n_rows",
+            "int64"
+          ],
+          [
+            "n_customer",
+            "int64"
+          ],
+          [
+            "sum_store",
+            "int64"
+          ],
+          [
+            "sum_product",
+            "int64"
+          ],
+          [
+            "sum_day",
+            "int64"
+          ],
+          [
+            "sum_status_len",
+            "int64"
+          ],
+          [
+            "sum_amount",
+            "int64"
+          ],
+          [
+            "sum_order",
+            "int64"
+          ]
+        ],
+        "physical_schema": [
+          [
+            "n_rows",
+            "int64"
+          ],
+          [
+            "n_customer",
+            "int64"
+          ],
+          [
+            "sum_store",
+            "int64"
+          ],
+          [
+            "sum_product",
+            "int64"
+          ],
+          [
+            "sum_day",
+            "int64"
+          ],
+          [
+            "sum_status_len",
+            "int64"
+          ],
+          [
+            "sum_amount",
+            "int64"
+          ],
+          [
+            "sum_order",
+            "int64"
+          ]
+        ]
+      }
+    },
+    {
+      "engine": "polars",
+      "query": "q0",
+      "round": 1,
+      "warmup": false,
+      "status": "PASS",
+      "checks": {
+        "schema": true,
+        "row_count": true,
+        "canonical_hash": true,
+        "exact_values": true,
+        "inv:n_rows_equals_input": true,
+        "inv:sum_amount_equals_input": true
+      },
+      "detail": {
+        "rows": 1,
+        "ref_rows": 1,
+        "hash": "99db4f5025cbcdb147bf2aad44479b71e2a711a910b17834863b46016bee1386",
+        "ref_hash": "99db4f5025cbcdb147bf2aad44479b71e2a711a910b17834863b46016bee1386",
+        "logical_schema": [
+          [
+            "n_rows",
+            "int64"
+          ],
+          [
+            "n_customer",
+            "int64"
+          ],
+          [
+            "sum_store",
+            "int64"
+          ],
+          [
+            "sum_product",
+            "int64"
+          ],
+          [
+            "sum_day",
+            "int64"
+          ],
+          [
+            "sum_status_len",
+            "int64"
+          ],
+          [
+            "sum_amount",
+            "int64"
+          ],
+          [
+            "sum_order",
+            "int64"
+          ]
+        ],
+        "physical_schema": [
+          [
+            "n_rows",
+            "int64"
+          ],
+          [
+            "n_customer",
+            "int64"
+          ],
+          [
+            "sum_store",
+            "int64"
+          ],
+          [
+            "sum_product",
+            "int64"
+          ],
+          [
+            "sum_day",
+            "int64"
+          ],
+          [
+            "sum_status_len",
+            "int64"
+          ],
+          [
+            "sum_amount",
+            "int64"
+          ],
+          [
+            "sum_order",
+            "int64"
+          ]
+        ]
+      }
+    },
+    {
+      "engine": "polars",
+      "query": "q2",
+      "round": 2,
+      "warmup": false,
+      "status": "PASS",
+      "checks": {
+        "schema": true,
+        "row_count": true,
+        "keys_unique": true,
+        "key_set": true,
+        "canonical_hash": true,
+        "exact_values": true,
+        "inv:join_reconciliation(matched+unmatched=noncancelled)": true
+      },
+      "detail": {
+        "rows": 21,
+        "ref_rows": 21,
+        "hash": "fcecb390d35983108670198e4a84e051fd2cdf9bb0c3e15e4ce75e26ed38ba27",
+        "ref_hash": "fcecb390d35983108670198e4a84e051fd2cdf9bb0c3e15e4ce75e26ed38ba27",
+        "logical_schema": [
+          [
+            "category",
+            "string"
+          ],
+          [
+            "n",
+            "int64"
+          ],
+          [
+            "total_cents",
+            "int64"
+          ]
+        ],
+        "physical_schema": [
+          [
+            "category",
+            "large_string"
+          ],
+          [
+            "n",
+            "int64"
+          ],
+          [
+            "total_cents",
+            "int64"
+          ]
+        ]
+      }
+    },
+    {
+      "engine": "duckdb",
+      "query": "q2",
+      "round": 2,
+      "warmup": false,
+      "status": "PASS",
+      "checks": {
+        "schema": true,
+        "row_count": true,
+        "keys_unique": true,
+        "key_set": true,
+        "canonical_hash": true,
+        "exact_values": true,
+        "inv:join_reconciliation(matched+unmatched=noncancelled)": true
+      },
+      "detail": {
+        "rows": 21,
+        "ref_rows": 21,
+        "hash": "fcecb390d35983108670198e4a84e051fd2cdf9bb0c3e15e4ce75e26ed38ba27",
+        "ref_hash": "fcecb390d35983108670198e4a84e051fd2cdf9bb0c3e15e4ce75e26ed38ba27",
+        "logical_schema": [
+          [
+            "category",
+            "string"
+          ],
+          [
+            "n",
+            "int64"
+          ],
+          [
+            "total_cents",
+            "int64"
+          ]
+        ],
+        "physical_schema": [
+          [
+            "category",
+            "string"
+          ],
+          [
+            "n",
+            "int64"
+          ],
+          [
+            "total_cents",
+            "int64"
+          ]
+        ]
+      }
+    },
+    {
+      "engine": "spark",
+      "query": "q2",
+      "round": 2,
+      "warmup": false,
+      "status": "PASS",
+      "checks": {
+        "schema": true,
+        "row_count": true,
+        "keys_unique": true,
+        "key_set": true,
+        "canonical_hash": true,
+        "exact_values": true,
+        "inv:join_reconciliation(matched+unmatched=noncancelled)": true
+      },
+      "detail": {
+        "rows": 21,
+        "ref_rows": 21,
+        "hash": "fcecb390d35983108670198e4a84e051fd2cdf9bb0c3e15e4ce75e26ed38ba27",
+        "ref_hash": "fcecb390d35983108670198e4a84e051fd2cdf9bb0c3e15e4ce75e26ed38ba27",
+        "logical_schema": [
+          [
+            "category",
+            "string"
+          ],
+          [
+            "n",
+            "int64"
+          ],
+          [
+            "total_cents",
+            "int64"
+          ]
+        ],
+        "physical_schema": [
+          [
+            "category",
+            "string"
+          ],
+          [
+            "n",
+            "int64"
+          ],
+          [
+            "total_cents",
+            "int64"
+          ]
+        ]
+      }
+    },
+    {
+      "engine": "polars",
+      "query": "q3",
+      "round": 2,
+      "warmup": false,
+      "status": "PASS",
+      "checks": {
+        "schema": true,
+        "row_count": true,
+        "keys_unique": true,
+        "key_set": true,
+        "canonical_hash": true,
+        "exact_values": true,
+        "inv:one_row_per_customer": true
+      },
+      "detail": {
+        "rows": 99994,
+        "ref_rows": 99994,
+        "hash": "5ead35d109ef567657f104f007b61321a2aa4196432b17eed7eb566ce4b4404a",
+        "ref_hash": "5ead35d109ef567657f104f007b61321a2aa4196432b17eed7eb566ce4b4404a",
+        "logical_schema": [
+          [
+            "customer_id",
+            "int64"
+          ],
+          [
+            "order_id",
+            "int64"
+          ],
+          [
+            "day_id",
+            "int32"
+          ],
+          [
+            "amount_cents",
+            "int64"
+          ]
+        ],
+        "physical_schema": [
+          [
+            "customer_id",
+            "int64"
+          ],
+          [
+            "order_id",
+            "int64"
+          ],
+          [
+            "day_id",
+            "int32"
+          ],
+          [
+            "amount_cents",
+            "int64"
+          ]
+        ]
+      }
+    },
+    {
+      "engine": "duckdb",
+      "query": "q3",
+      "round": 2,
+      "warmup": false,
+      "status": "PASS",
+      "checks": {
+        "schema": true,
+        "row_count": true,
+        "keys_unique": true,
+        "key_set": true,
+        "canonical_hash": true,
+        "exact_values": true,
+        "inv:one_row_per_customer": true
+      },
+      "detail": {
+        "rows": 99994,
+        "ref_rows": 99994,
+        "hash": "5ead35d109ef567657f104f007b61321a2aa4196432b17eed7eb566ce4b4404a",
+        "ref_hash": "5ead35d109ef567657f104f007b61321a2aa4196432b17eed7eb566ce4b4404a",
+        "logical_schema": [
+          [
+            "customer_id",
+            "int64"
+          ],
+          [
+            "order_id",
+            "int64"
+          ],
+          [
+            "day_id",
+            "int32"
+          ],
+          [
+            "amount_cents",
+            "int64"
+          ]
+        ],
+        "physical_schema": [
+          [
+            "customer_id",
+            "int64"
+          ],
+          [
+            "order_id",
+            "int64"
+          ],
+          [
+            "day_id",
+            "int32"
+          ],
+          [
+            "amount_cents",
+            "int64"
+          ]
+        ]
+      }
+    },
+    {
+      "engine": "spark",
+      "query": "q3",
+      "round": 2,
+      "warmup": false,
+      "status": "PASS",
+      "checks": {
+        "schema": true,
+        "row_count": true,
+        "keys_unique": true,
+        "key_set": true,
+        "canonical_hash": true,
+        "exact_values": true,
+        "inv:one_row_per_customer": true
+      },
+      "detail": {
+        "rows": 99994,
+        "ref_rows": 99994,
+        "hash": "5ead35d109ef567657f104f007b61321a2aa4196432b17eed7eb566ce4b4404a",
+        "ref_hash": "5ead35d109ef567657f104f007b61321a2aa4196432b17eed7eb566ce4b4404a",
+        "logical_schema": [
+          [
+            "customer_id",
+            "int64"
+          ],
+          [
+            "order_id",
+            "int64"
+          ],
+          [
+            "day_id",
+            "int32"
+          ],
+          [
+            "amount_cents",
+            "int64"
+          ]
+        ],
+        "physical_schema": [
+          [
+            "customer_id",
+            "int64"
+          ],
+          [
+            "order_id",
+            "int64"
+          ],
+          [
+            "day_id",
+            "int32"
+          ],
+          [
+            "amount_cents",
+            "int64"
+          ]
+        ]
+      }
+    },
+    {
+      "engine": "polars",
+      "query": "q4",
+      "round": 2,
+      "warmup": false,
+      "status": "PASS",
+      "checks": {
+        "schema": true,
+        "row_count": true,
+        "keys_unique": true,
+        "key_set": true,
+        "canonical_hash": true,
+        "exact_values": true,
+        "inv:sum_n_equals_input_rows": true,
+        "inv:sum_total_equals_input_amount": true,
+        "inv:groups_equal_distinct_customers": true
+      },
+      "detail": {
+        "rows": 99994,
+        "ref_rows": 99994,
+        "hash": "91fa0ea12445a85abac43c6135de62135423025c63043d44cbe90d803e050fb8",
+        "ref_hash": "91fa0ea12445a85abac43c6135de62135423025c63043d44cbe90d803e050fb8",
+        "logical_schema": [
+          [
+            "customer_id",
+            "int64"
+          ],
+          [
+            "n",
+            "int64"
+          ],
+          [
+            "total_cents",
+            "int64"
+          ]
+        ],
+        "physical_schema": [
+          [
+            "customer_id",
+            "int64"
+          ],
+          [
+            "n",
+            "int64"
+          ],
+          [
+            "total_cents",
+            "int64"
+          ]
+        ]
+      }
+    },
+    {
+      "engine": "duckdb",
+      "query": "q4",
+      "round": 2,
+      "warmup": false,
+      "status": "PASS",
+      "checks": {
+        "schema": true,
+        "row_count": true,
+        "keys_unique": true,
+        "key_set": true,
+        "canonical_hash": true,
+        "exact_values": true,
+        "inv:sum_n_equals_input_rows": true,
+        "inv:sum_total_equals_input_amount": true,
+        "inv:groups_equal_distinct_customers": true
+      },
+      "detail": {
+        "rows": 99994,
+        "ref_rows": 99994,
+        "hash": "91fa0ea12445a85abac43c6135de62135423025c63043d44cbe90d803e050fb8",
+        "ref_hash": "91fa0ea12445a85abac43c6135de62135423025c63043d44cbe90d803e050fb8",
+        "logical_schema": [
+          [
+            "customer_id",
+            "int64"
+          ],
+          [
+            "n",
+            "int64"
+          ],
+          [
+            "total_cents",
+            "int64"
+          ]
+        ],
+        "physical_schema": [
+          [
+            "customer_id",
+            "int64"
+          ],
+          [
+            "n",
+            "int64"
+          ],
+          [
+            "total_cents",
+            "int64"
+          ]
+        ]
+      }
+    },
+    {
+      "engine": "spark",
+      "query": "q4",
+      "round": 2,
+      "warmup": false,
+      "status": "PASS",
+      "checks": {
+        "schema": true,
+        "row_count": true,
+        "keys_unique": true,
+        "key_set": true,
+        "canonical_hash": true,
+        "exact_values": true,
+        "inv:sum_n_equals_input_rows": true,
+        "inv:sum_total_equals_input_amount": true,
+        "inv:groups_equal_distinct_customers": true
+      },
+      "detail": {
+        "rows": 99994,
+        "ref_rows": 99994,
+        "hash": "91fa0ea12445a85abac43c6135de62135423025c63043d44cbe90d803e050fb8",
+        "ref_hash": "91fa0ea12445a85abac43c6135de62135423025c63043d44cbe90d803e050fb8",
+        "logical_schema": [
+          [
+            "customer_id",
+            "int64"
+          ],
+          [
+            "n",
+            "int64"
+          ],
+          [
+            "total_cents",
+            "int64"
+          ]
+        ],
+        "physical_schema": [
+          [
+            "customer_id",
+            "int64"
+          ],
+          [
+            "n",
+            "int64"
+          ],
+          [
+            "total_cents",
+            "int64"
+          ]
+        ]
+      }
+    },
+    {
+      "engine": "polars",
+      "query": "q0",
+      "round": 2,
+      "warmup": false,
+      "status": "PASS",
+      "checks": {
+        "schema": true,
+        "row_count": true,
+        "canonical_hash": true,
+        "exact_values": true,
+        "inv:n_rows_equals_input": true,
+        "inv:sum_amount_equals_input": true
+      },
+      "detail": {
+        "rows": 1,
+        "ref_rows": 1,
+        "hash": "99db4f5025cbcdb147bf2aad44479b71e2a711a910b17834863b46016bee1386",
+        "ref_hash": "99db4f5025cbcdb147bf2aad44479b71e2a711a910b17834863b46016bee1386",
+        "logical_schema": [
+          [
+            "n_rows",
+            "int64"
+          ],
+          [
+            "n_customer",
+            "int64"
+          ],
+          [
+            "sum_store",
+            "int64"
+          ],
+          [
+            "sum_product",
+            "int64"
+          ],
+          [
+            "sum_day",
+            "int64"
+          ],
+          [
+            "sum_status_len",
+            "int64"
+          ],
+          [
+            "sum_amount",
+            "int64"
+          ],
+          [
+            "sum_order",
+            "int64"
+          ]
+        ],
+        "physical_schema": [
+          [
+            "n_rows",
+            "int64"
+          ],
+          [
+            "n_customer",
+            "int64"
+          ],
+          [
+            "sum_store",
+            "int64"
+          ],
+          [
+            "sum_product",
+            "int64"
+          ],
+          [
+            "sum_day",
+            "int64"
+          ],
+          [
+            "sum_status_len",
+            "int64"
+          ],
+          [
+            "sum_amount",
+            "int64"
+          ],
+          [
+            "sum_order",
+            "int64"
+          ]
+        ]
+      }
+    },
+    {
+      "engine": "duckdb",
+      "query": "q0",
+      "round": 2,
+      "warmup": false,
+      "status": "PASS",
+      "checks": {
+        "schema": true,
+        "row_count": true,
+        "canonical_hash": true,
+        "exact_values": true,
+        "inv:n_rows_equals_input": true,
+        "inv:sum_amount_equals_input": true
+      },
+      "detail": {
+        "rows": 1,
+        "ref_rows": 1,
+        "hash": "99db4f5025cbcdb147bf2aad44479b71e2a711a910b17834863b46016bee1386",
+        "ref_hash": "99db4f5025cbcdb147bf2aad44479b71e2a711a910b17834863b46016bee1386",
+        "logical_schema": [
+          [
+            "n_rows",
+            "int64"
+          ],
+          [
+            "n_customer",
+            "int64"
+          ],
+          [
+            "sum_store",
+            "int64"
+          ],
+          [
+            "sum_product",
+            "int64"
+          ],
+          [
+            "sum_day",
+            "int64"
+          ],
+          [
+            "sum_status_len",
+            "int64"
+          ],
+          [
+            "sum_amount",
+            "int64"
+          ],
+          [
+            "sum_order",
+            "int64"
+          ]
+        ],
+        "physical_schema": [
+          [
+            "n_rows",
+            "int64"
+          ],
+          [
+            "n_customer",
+            "int64"
+          ],
+          [
+            "sum_store",
+            "int64"
+          ],
+          [
+            "sum_product",
+            "int64"
+          ],
+          [
+            "sum_day",
+            "int64"
+          ],
+          [
+            "sum_status_len",
+            "int64"
+          ],
+          [
+            "sum_amount",
+            "int64"
+          ],
+          [
+            "sum_order",
+            "int64"
+          ]
+        ]
+      }
+    },
+    {
+      "engine": "spark",
+      "query": "q0",
+      "round": 2,
+      "warmup": false,
+      "status": "PASS",
+      "checks": {
+        "schema": true,
+        "row_count": true,
+        "canonical_hash": true,
+        "exact_values": true,
+        "inv:n_rows_equals_input": true,
+        "inv:sum_amount_equals_input": true
+      },
+      "detail": {
+        "rows": 1,
+        "ref_rows": 1,
+        "hash": "99db4f5025cbcdb147bf2aad44479b71e2a711a910b17834863b46016bee1386",
+        "ref_hash": "99db4f5025cbcdb147bf2aad44479b71e2a711a910b17834863b46016bee1386",
+        "logical_schema": [
+          [
+            "n_rows",
+            "int64"
+          ],
+          [
+            "n_customer",
+            "int64"
+          ],
+          [
+            "sum_store",
+            "int64"
+          ],
+          [
+            "sum_product",
+            "int64"
+          ],
+          [
+            "sum_day",
+            "int64"
+          ],
+          [
+            "sum_status_len",
+            "int64"
+          ],
+          [
+            "sum_amount",
+            "int64"
+          ],
+          [
+            "sum_order",
+            "int64"
+          ]
+        ],
+        "physical_schema": [
+          [
+            "n_rows",
+            "int64"
+          ],
+          [
+            "n_customer",
+            "int64"
+          ],
+          [
+            "sum_store",
+            "int64"
+          ],
+          [
+            "sum_product",
+            "int64"
+          ],
+          [
+            "sum_day",
+            "int64"
+          ],
+          [
+            "sum_status_len",
+            "int64"
+          ],
+          [
+            "sum_amount",
+            "int64"
+          ],
+          [
+            "sum_order",
+            "int64"
+          ]
+        ]
+      }
+    },
+    {
+      "engine": "polars",
+      "query": "q1",
+      "round": 2,
+      "warmup": false,
+      "status": "PASS",
+      "checks": {
+        "schema": true,
+        "row_count": true,
+        "keys_unique": true,
+        "key_set": true,
+        "canonical_hash": true,
+        "exact_values": true,
+        "inv:sum_n_equals_filtered_rows": true
+      },
+      "detail": {
+        "rows": 100,
+        "ref_rows": 100,
+        "hash": "92bedc2b6707609011d9296cce5c70b84d2468967cc651a2b9d3fafb08511629",
+        "ref_hash": "92bedc2b6707609011d9296cce5c70b84d2468967cc651a2b9d3fafb08511629",
+        "logical_schema": [
+          [
+            "store_id",
+            "int32"
+          ],
+          [
+            "status",
+            "string"
+          ],
+          [
+            "n",
+            "int64"
+          ],
+          [
+            "total_cents",
+            "int64"
+          ]
+        ],
+        "physical_schema": [
+          [
+            "store_id",
+            "int32"
+          ],
+          [
+            "status",
+            "large_string"
+          ],
+          [
+            "n",
+            "int64"
+          ],
+          [
+            "total_cents",
+            "int64"
+          ]
+        ]
+      }
+    },
+    {
+      "engine": "duckdb",
+      "query": "q1",
+      "round": 2,
+      "warmup": false,
+      "status": "PASS",
+      "checks": {
+        "schema": true,
+        "row_count": true,
+        "keys_unique": true,
+        "key_set": true,
+        "canonical_hash": true,
+        "exact_values": true,
+        "inv:sum_n_equals_filtered_rows": true
+      },
+      "detail": {
+        "rows": 100,
+        "ref_rows": 100,
+        "hash": "92bedc2b6707609011d9296cce5c70b84d2468967cc651a2b9d3fafb08511629",
+        "ref_hash": "92bedc2b6707609011d9296cce5c70b84d2468967cc651a2b9d3fafb08511629",
+        "logical_schema": [
+          [
+            "store_id",
+            "int32"
+          ],
+          [
+            "status",
+            "string"
+          ],
+          [
+            "n",
+            "int64"
+          ],
+          [
+            "total_cents",
+            "int64"
+          ]
+        ],
+        "physical_schema": [
+          [
+            "store_id",
+            "int32"
+          ],
+          [
+            "status",
+            "string"
+          ],
+          [
+            "n",
+            "int64"
+          ],
+          [
+            "total_cents",
+            "int64"
+          ]
+        ]
+      }
+    },
+    {
+      "engine": "spark",
+      "query": "q1",
+      "round": 2,
+      "warmup": false,
+      "status": "PASS",
+      "checks": {
+        "schema": true,
+        "row_count": true,
+        "keys_unique": true,
+        "key_set": true,
+        "canonical_hash": true,
+        "exact_values": true,
+        "inv:sum_n_equals_filtered_rows": true
+      },
+      "detail": {
+        "rows": 100,
+        "ref_rows": 100,
+        "hash": "92bedc2b6707609011d9296cce5c70b84d2468967cc651a2b9d3fafb08511629",
+        "ref_hash": "92bedc2b6707609011d9296cce5c70b84d2468967cc651a2b9d3fafb08511629",
+        "logical_schema": [
+          [
+            "store_id",
+            "int32"
+          ],
+          [
+            "status",
+            "string"
+          ],
+          [
+            "n",
+            "int64"
+          ],
+          [
+            "total_cents",
+            "int64"
+          ]
+        ],
+        "physical_schema": [
+          [
+            "store_id",
+            "int32"
+          ],
+          [
+            "status",
+            "string"
+          ],
+          [
+            "n",
+            "int64"
+          ],
+          [
+            "total_cents",
+            "int64"
+          ]
+        ]
+      }
+    },
+    {
+      "engine": "polars",
+      "query": "q3",
+      "round": 3,
+      "warmup": false,
+      "status": "PASS",
+      "checks": {
+        "schema": true,
+        "row_count": true,
+        "keys_unique": true,
+        "key_set": true,
+        "canonical_hash": true,
+        "exact_values": true,
+        "inv:one_row_per_customer": true
+      },
+      "detail": {
+        "rows": 99994,
+        "ref_rows": 99994,
+        "hash": "5ead35d109ef567657f104f007b61321a2aa4196432b17eed7eb566ce4b4404a",
+        "ref_hash": "5ead35d109ef567657f104f007b61321a2aa4196432b17eed7eb566ce4b4404a",
+        "logical_schema": [
+          [
+            "customer_id",
+            "int64"
+          ],
+          [
+            "order_id",
+            "int64"
+          ],
+          [
+            "day_id",
+            "int32"
+          ],
+          [
+            "amount_cents",
+            "int64"
+          ]
+        ],
+        "physical_schema": [
+          [
+            "customer_id",
+            "int64"
+          ],
+          [
+            "order_id",
+            "int64"
+          ],
+          [
+            "day_id",
+            "int32"
+          ],
+          [
+            "amount_cents",
+            "int64"
+          ]
+        ]
+      }
+    },
+    {
+      "engine": "spark",
+      "query": "q3",
+      "round": 3,
+      "warmup": false,
+      "status": "PASS",
+      "checks": {
+        "schema": true,
+        "row_count": true,
+        "keys_unique": true,
+        "key_set": true,
+        "canonical_hash": true,
+        "exact_values": true,
+        "inv:one_row_per_customer": true
+      },
+      "detail": {
+        "rows": 99994,
+        "ref_rows": 99994,
+        "hash": "5ead35d109ef567657f104f007b61321a2aa4196432b17eed7eb566ce4b4404a",
+        "ref_hash": "5ead35d109ef567657f104f007b61321a2aa4196432b17eed7eb566ce4b4404a",
+        "logical_schema": [
+          [
+            "customer_id",
+            "int64"
+          ],
+          [
+            "order_id",
+            "int64"
+          ],
+          [
+            "day_id",
+            "int32"
+          ],
+          [
+            "amount_cents",
+            "int64"
+          ]
+        ],
+        "physical_schema": [
+          [
+            "customer_id",
+            "int64"
+          ],
+          [
+            "order_id",
+            "int64"
+          ],
+          [
+            "day_id",
+            "int32"
+          ],
+          [
+            "amount_cents",
+            "int64"
+          ]
+        ]
+      }
+    },
+    {
+      "engine": "duckdb",
+      "query": "q3",
+      "round": 3,
+      "warmup": false,
+      "status": "PASS",
+      "checks": {
+        "schema": true,
+        "row_count": true,
+        "keys_unique": true,
+        "key_set": true,
+        "canonical_hash": true,
+        "exact_values": true,
+        "inv:one_row_per_customer": true
+      },
+      "detail": {
+        "rows": 99994,
+        "ref_rows": 99994,
+        "hash": "5ead35d109ef567657f104f007b61321a2aa4196432b17eed7eb566ce4b4404a",
+        "ref_hash": "5ead35d109ef567657f104f007b61321a2aa4196432b17eed7eb566ce4b4404a",
+        "logical_schema": [
+          [
+            "customer_id",
+            "int64"
+          ],
+          [
+            "order_id",
+            "int64"
+          ],
+          [
+            "day_id",
+            "int32"
+          ],
+          [
+            "amount_cents",
+            "int64"
+          ]
+        ],
+        "physical_schema": [
+          [
+            "customer_id",
+            "int64"
+          ],
+          [
+            "order_id",
+            "int64"
+          ],
+          [
+            "day_id",
+            "int32"
+          ],
+          [
+            "amount_cents",
+            "int64"
+          ]
+        ]
+      }
+    },
+    {
+      "engine": "polars",
+      "query": "q4",
+      "round": 3,
+      "warmup": false,
+      "status": "PASS",
+      "checks": {
+        "schema": true,
+        "row_count": true,
+        "keys_unique": true,
+        "key_set": true,
+        "canonical_hash": true,
+        "exact_values": true,
+        "inv:sum_n_equals_input_rows": true,
+        "inv:sum_total_equals_input_amount": true,
+        "inv:groups_equal_distinct_customers": true
+      },
+      "detail": {
+        "rows": 99994,
+        "ref_rows": 99994,
+        "hash": "91fa0ea12445a85abac43c6135de62135423025c63043d44cbe90d803e050fb8",
+        "ref_hash": "91fa0ea12445a85abac43c6135de62135423025c63043d44cbe90d803e050fb8",
+        "logical_schema": [
+          [
+            "customer_id",
+            "int64"
+          ],
+          [
+            "n",
+            "int64"
+          ],
+          [
+            "total_cents",
+            "int64"
+          ]
+        ],
+        "physical_schema": [
+          [
+            "customer_id",
+            "int64"
+          ],
+          [
+            "n",
+            "int64"
+          ],
+          [
+            "total_cents",
+            "int64"
+          ]
+        ]
+      }
+    },
+    {
+      "engine": "spark",
+      "query": "q4",
+      "round": 3,
+      "warmup": false,
+      "status": "PASS",
+      "checks": {
+        "schema": true,
+        "row_count": true,
+        "keys_unique": true,
+        "key_set": true,
+        "canonical_hash": true,
+        "exact_values": true,
+        "inv:sum_n_equals_input_rows": true,
+        "inv:sum_total_equals_input_amount": true,
+        "inv:groups_equal_distinct_customers": true
+      },
+      "detail": {
+        "rows": 99994,
+        "ref_rows": 99994,
+        "hash": "91fa0ea12445a85abac43c6135de62135423025c63043d44cbe90d803e050fb8",
+        "ref_hash": "91fa0ea12445a85abac43c6135de62135423025c63043d44cbe90d803e050fb8",
+        "logical_schema": [
+          [
+            "customer_id",
+            "int64"
+          ],
+          [
+            "n",
+            "int64"
+          ],
+          [
+            "total_cents",
+            "int64"
+          ]
+        ],
+        "physical_schema": [
+          [
+            "customer_id",
+            "int64"
+          ],
+          [
+            "n",
+            "int64"
+          ],
+          [
+            "total_cents",
+            "int64"
+          ]
+        ]
+      }
+    },
+    {
+      "engine": "duckdb",
+      "query": "q4",
+      "round": 3,
+      "warmup": false,
+      "status": "PASS",
+      "checks": {
+        "schema": true,
+        "row_count": true,
+        "keys_unique": true,
+        "key_set": true,
+        "canonical_hash": true,
+        "exact_values": true,
+        "inv:sum_n_equals_input_rows": true,
+        "inv:sum_total_equals_input_amount": true,
+        "inv:groups_equal_distinct_customers": true
+      },
+      "detail": {
+        "rows": 99994,
+        "ref_rows": 99994,
+        "hash": "91fa0ea12445a85abac43c6135de62135423025c63043d44cbe90d803e050fb8",
+        "ref_hash": "91fa0ea12445a85abac43c6135de62135423025c63043d44cbe90d803e050fb8",
+        "logical_schema": [
+          [
+            "customer_id",
+            "int64"
+          ],
+          [
+            "n",
+            "int64"
+          ],
+          [
+            "total_cents",
+            "int64"
+          ]
+        ],
+        "physical_schema": [
+          [
+            "customer_id",
+            "int64"
+          ],
+          [
+            "n",
+            "int64"
+          ],
+          [
+            "total_cents",
+            "int64"
+          ]
+        ]
+      }
+    },
+    {
+      "engine": "polars",
+      "query": "q0",
+      "round": 3,
+      "warmup": false,
+      "status": "PASS",
+      "checks": {
+        "schema": true,
+        "row_count": true,
+        "canonical_hash": true,
+        "exact_values": true,
+        "inv:n_rows_equals_input": true,
+        "inv:sum_amount_equals_input": true
+      },
+      "detail": {
+        "rows": 1,
+        "ref_rows": 1,
+        "hash": "99db4f5025cbcdb147bf2aad44479b71e2a711a910b17834863b46016bee1386",
+        "ref_hash": "99db4f5025cbcdb147bf2aad44479b71e2a711a910b17834863b46016bee1386",
+        "logical_schema": [
+          [
+            "n_rows",
+            "int64"
+          ],
+          [
+            "n_customer",
+            "int64"
+          ],
+          [
+            "sum_store",
+            "int64"
+          ],
+          [
+            "sum_product",
+            "int64"
+          ],
+          [
+            "sum_day",
+            "int64"
+          ],
+          [
+            "sum_status_len",
+            "int64"
+          ],
+          [
+            "sum_amount",
+            "int64"
+          ],
+          [
+            "sum_order",
+            "int64"
+          ]
+        ],
+        "physical_schema": [
+          [
+            "n_rows",
+            "int64"
+          ],
+          [
+            "n_customer",
+            "int64"
+          ],
+          [
+            "sum_store",
+            "int64"
+          ],
+          [
+            "sum_product",
+            "int64"
+          ],
+          [
+            "sum_day",
+            "int64"
+          ],
+          [
+            "sum_status_len",
+            "int64"
+          ],
+          [
+            "sum_amount",
+            "int64"
+          ],
+          [
+            "sum_order",
+            "int64"
+          ]
+        ]
+      }
+    },
+    {
+      "engine": "spark",
+      "query": "q0",
+      "round": 3,
+      "warmup": false,
+      "status": "PASS",
+      "checks": {
+        "schema": true,
+        "row_count": true,
+        "canonical_hash": true,
+        "exact_values": true,
+        "inv:n_rows_equals_input": true,
+        "inv:sum_amount_equals_input": true
+      },
+      "detail": {
+        "rows": 1,
+        "ref_rows": 1,
+        "hash": "99db4f5025cbcdb147bf2aad44479b71e2a711a910b17834863b46016bee1386",
+        "ref_hash": "99db4f5025cbcdb147bf2aad44479b71e2a711a910b17834863b46016bee1386",
+        "logical_schema": [
+          [
+            "n_rows",
+            "int64"
+          ],
+          [
+            "n_customer",
+            "int64"
+          ],
+          [
+            "sum_store",
+            "int64"
+          ],
+          [
+            "sum_product",
+            "int64"
+          ],
+          [
+            "sum_day",
+            "int64"
+          ],
+          [
+            "sum_status_len",
+            "int64"
+          ],
+          [
+            "sum_amount",
+            "int64"
+          ],
+          [
+            "sum_order",
+            "int64"
+          ]
+        ],
+        "physical_schema": [
+          [
+            "n_rows",
+            "int64"
+          ],
+          [
+            "n_customer",
+            "int64"
+          ],
+          [
+            "sum_store",
+            "int64"
+          ],
+          [
+            "sum_product",
+            "int64"
+          ],
+          [
+            "sum_day",
+            "int64"
+          ],
+          [
+            "sum_status_len",
+            "int64"
+          ],
+          [
+            "sum_amount",
+            "int64"
+          ],
+          [
+            "sum_order",
+            "int64"
+          ]
+        ]
+      }
+    },
+    {
+      "engine": "duckdb",
+      "query": "q0",
+      "round": 3,
+      "warmup": false,
+      "status": "PASS",
+      "checks": {
+        "schema": true,
+        "row_count": true,
+        "canonical_hash": true,
+        "exact_values": true,
+        "inv:n_rows_equals_input": true,
+        "inv:sum_amount_equals_input": true
+      },
+      "detail": {
+        "rows": 1,
+        "ref_rows": 1,
+        "hash": "99db4f5025cbcdb147bf2aad44479b71e2a711a910b17834863b46016bee1386",
+        "ref_hash": "99db4f5025cbcdb147bf2aad44479b71e2a711a910b17834863b46016bee1386",
+        "logical_schema": [
+          [
+            "n_rows",
+            "int64"
+          ],
+          [
+            "n_customer",
+            "int64"
+          ],
+          [
+            "sum_store",
+            "int64"
+          ],
+          [
+            "sum_product",
+            "int64"
+          ],
+          [
+            "sum_day",
+            "int64"
+          ],
+          [
+            "sum_status_len",
+            "int64"
+          ],
+          [
+            "sum_amount",
+            "int64"
+          ],
+          [
+            "sum_order",
+            "int64"
+          ]
+        ],
+        "physical_schema": [
+          [
+            "n_rows",
+            "int64"
+          ],
+          [
+            "n_customer",
+            "int64"
+          ],
+          [
+            "sum_store",
+            "int64"
+          ],
+          [
+            "sum_product",
+            "int64"
+          ],
+          [
+            "sum_day",
+            "int64"
+          ],
+          [
+            "sum_status_len",
+            "int64"
+          ],
+          [
+            "sum_amount",
+            "int64"
+          ],
+          [
+            "sum_order",
+            "int64"
+          ]
+        ]
+      }
+    },
+    {
+      "engine": "polars",
+      "query": "q1",
+      "round": 3,
+      "warmup": false,
+      "status": "PASS",
+      "checks": {
+        "schema": true,
+        "row_count": true,
+        "keys_unique": true,
+        "key_set": true,
+        "canonical_hash": true,
+        "exact_values": true,
+        "inv:sum_n_equals_filtered_rows": true
+      },
+      "detail": {
+        "rows": 100,
+        "ref_rows": 100,
+        "hash": "92bedc2b6707609011d9296cce5c70b84d2468967cc651a2b9d3fafb08511629",
+        "ref_hash": "92bedc2b6707609011d9296cce5c70b84d2468967cc651a2b9d3fafb08511629",
+        "logical_schema": [
+          [
+            "store_id",
+            "int32"
+          ],
+          [
+            "status",
+            "string"
+          ],
+          [
+            "n",
+            "int64"
+          ],
+          [
+            "total_cents",
+            "int64"
+          ]
+        ],
+        "physical_schema": [
+          [
+            "store_id",
+            "int32"
+          ],
+          [
+            "status",
+            "large_string"
+          ],
+          [
+            "n",
+            "int64"
+          ],
+          [
+            "total_cents",
+            "int64"
+          ]
+        ]
+      }
+    },
+    {
+      "engine": "spark",
+      "query": "q1",
+      "round": 3,
+      "warmup": false,
+      "status": "PASS",
+      "checks": {
+        "schema": true,
+        "row_count": true,
+        "keys_unique": true,
+        "key_set": true,
+        "canonical_hash": true,
+        "exact_values": true,
+        "inv:sum_n_equals_filtered_rows": true
+      },
+      "detail": {
+        "rows": 100,
+        "ref_rows": 100,
+        "hash": "92bedc2b6707609011d9296cce5c70b84d2468967cc651a2b9d3fafb08511629",
+        "ref_hash": "92bedc2b6707609011d9296cce5c70b84d2468967cc651a2b9d3fafb08511629",
+        "logical_schema": [
+          [
+            "store_id",
+            "int32"
+          ],
+          [
+            "status",
+            "string"
+          ],
+          [
+            "n",
+            "int64"
+          ],
+          [
+            "total_cents",
+            "int64"
+          ]
+        ],
+        "physical_schema": [
+          [
+            "store_id",
+            "int32"
+          ],
+          [
+            "status",
+            "string"
+          ],
+          [
+            "n",
+            "int64"
+          ],
+          [
+            "total_cents",
+            "int64"
+          ]
+        ]
+      }
+    },
+    {
+      "engine": "duckdb",
+      "query": "q1",
+      "round": 3,
+      "warmup": false,
+      "status": "PASS",
+      "checks": {
+        "schema": true,
+        "row_count": true,
+        "keys_unique": true,
+        "key_set": true,
+        "canonical_hash": true,
+        "exact_values": true,
+        "inv:sum_n_equals_filtered_rows": true
+      },
+      "detail": {
+        "rows": 100,
+        "ref_rows": 100,
+        "hash": "92bedc2b6707609011d9296cce5c70b84d2468967cc651a2b9d3fafb08511629",
+        "ref_hash": "92bedc2b6707609011d9296cce5c70b84d2468967cc651a2b9d3fafb08511629",
+        "logical_schema": [
+          [
+            "store_id",
+            "int32"
+          ],
+          [
+            "status",
+            "string"
+          ],
+          [
+            "n",
+            "int64"
+          ],
+          [
+            "total_cents",
+            "int64"
+          ]
+        ],
+        "physical_schema": [
+          [
+            "store_id",
+            "int32"
+          ],
+          [
+            "status",
+            "string"
+          ],
+          [
+            "n",
+            "int64"
+          ],
+          [
+            "total_cents",
+            "int64"
+          ]
+        ]
+      }
+    },
+    {
+      "engine": "polars",
+      "query": "q2",
+      "round": 3,
+      "warmup": false,
+      "status": "PASS",
+      "checks": {
+        "schema": true,
+        "row_count": true,
+        "keys_unique": true,
+        "key_set": true,
+        "canonical_hash": true,
+        "exact_values": true,
+        "inv:join_reconciliation(matched+unmatched=noncancelled)": true
+      },
+      "detail": {
+        "rows": 21,
+        "ref_rows": 21,
+        "hash": "fcecb390d35983108670198e4a84e051fd2cdf9bb0c3e15e4ce75e26ed38ba27",
+        "ref_hash": "fcecb390d35983108670198e4a84e051fd2cdf9bb0c3e15e4ce75e26ed38ba27",
+        "logical_schema": [
+          [
+            "category",
+            "string"
+          ],
+          [
+            "n",
+            "int64"
+          ],
+          [
+            "total_cents",
+            "int64"
+          ]
+        ],
+        "physical_schema": [
+          [
+            "category",
+            "large_string"
+          ],
+          [
+            "n",
+            "int64"
+          ],
+          [
+            "total_cents",
+            "int64"
+          ]
+        ]
+      }
+    },
+    {
+      "engine": "spark",
+      "query": "q2",
+      "round": 3,
+      "warmup": false,
+      "status": "PASS",
+      "checks": {
+        "schema": true,
+        "row_count": true,
+        "keys_unique": true,
+        "key_set": true,
+        "canonical_hash": true,
+        "exact_values": true,
+        "inv:join_reconciliation(matched+unmatched=noncancelled)": true
+      },
+      "detail": {
+        "rows": 21,
+        "ref_rows": 21,
+        "hash": "fcecb390d35983108670198e4a84e051fd2cdf9bb0c3e15e4ce75e26ed38ba27",
+        "ref_hash": "fcecb390d35983108670198e4a84e051fd2cdf9bb0c3e15e4ce75e26ed38ba27",
+        "logical_schema": [
+          [
+            "category",
+            "string"
+          ],
+          [
+            "n",
+            "int64"
+          ],
+          [
+            "total_cents",
+            "int64"
+          ]
+        ],
+        "physical_schema": [
+          [
+            "category",
+            "string"
+          ],
+          [
+            "n",
+            "int64"
+          ],
+          [
+            "total_cents",
+            "int64"
+          ]
+        ]
+      }
+    },
+    {
+      "engine": "duckdb",
+      "query": "q2",
+      "round": 3,
+      "warmup": false,
+      "status": "PASS",
+      "checks": {
+        "schema": true,
+        "row_count": true,
+        "keys_unique": true,
+        "key_set": true,
+        "canonical_hash": true,
+        "exact_values": true,
+        "inv:join_reconciliation(matched+unmatched=noncancelled)": true
+      },
+      "detail": {
+        "rows": 21,
+        "ref_rows": 21,
+        "hash": "fcecb390d35983108670198e4a84e051fd2cdf9bb0c3e15e4ce75e26ed38ba27",
+        "ref_hash": "fcecb390d35983108670198e4a84e051fd2cdf9bb0c3e15e4ce75e26ed38ba27",
+        "logical_schema": [
+          [
+            "category",
+            "string"
+          ],
+          [
+            "n",
+            "int64"
+          ],
+          [
+            "total_cents",
+            "int64"
+          ]
+        ],
+        "physical_schema": [
+          [
+            "category",
+            "string"
+          ],
+          [
+            "n",
+            "int64"
+          ],
+          [
+            "total_cents",
+            "int64"
+          ]
+        ]
+      }
+    },
+    {
+      "engine": "spark",
+      "query": "q4",
+      "round": 4,
+      "warmup": false,
+      "status": "PASS",
+      "checks": {
+        "schema": true,
+        "row_count": true,
+        "keys_unique": true,
+        "key_set": true,
+        "canonical_hash": true,
+        "exact_values": true,
+        "inv:sum_n_equals_input_rows": true,
+        "inv:sum_total_equals_input_amount": true,
+        "inv:groups_equal_distinct_customers": true
+      },
+      "detail": {
+        "rows": 99994,
+        "ref_rows": 99994,
+        "hash": "91fa0ea12445a85abac43c6135de62135423025c63043d44cbe90d803e050fb8",
+        "ref_hash": "91fa0ea12445a85abac43c6135de62135423025c63043d44cbe90d803e050fb8",
+        "logical_schema": [
+          [
+            "customer_id",
+            "int64"
+          ],
+          [
+            "n",
+            "int64"
+          ],
+          [
+            "total_cents",
+            "int64"
+          ]
+        ],
+        "physical_schema": [
+          [
+            "customer_id",
+            "int64"
+          ],
+          [
+            "n",
+            "int64"
+          ],
+          [
+            "total_cents",
+            "int64"
+          ]
+        ]
+      }
+    },
+    {
+      "engine": "duckdb",
+      "query": "q4",
+      "round": 4,
+      "warmup": false,
+      "status": "PASS",
+      "checks": {
+        "schema": true,
+        "row_count": true,
+        "keys_unique": true,
+        "key_set": true,
+        "canonical_hash": true,
+        "exact_values": true,
+        "inv:sum_n_equals_input_rows": true,
+        "inv:sum_total_equals_input_amount": true,
+        "inv:groups_equal_distinct_customers": true
+      },
+      "detail": {
+        "rows": 99994,
+        "ref_rows": 99994,
+        "hash": "91fa0ea12445a85abac43c6135de62135423025c63043d44cbe90d803e050fb8",
+        "ref_hash": "91fa0ea12445a85abac43c6135de62135423025c63043d44cbe90d803e050fb8",
+        "logical_schema": [
+          [
+            "customer_id",
+            "int64"
+          ],
+          [
+            "n",
+            "int64"
+          ],
+          [
+            "total_cents",
+            "int64"
+          ]
+        ],
+        "physical_schema": [
+          [
+            "customer_id",
+            "int64"
+          ],
+          [
+            "n",
+            "int64"
+          ],
+          [
+            "total_cents",
+            "int64"
+          ]
+        ]
+      }
+    },
+    {
+      "engine": "polars",
+      "query": "q4",
+      "round": 4,
+      "warmup": false,
+      "status": "PASS",
+      "checks": {
+        "schema": true,
+        "row_count": true,
+        "keys_unique": true,
+        "key_set": true,
+        "canonical_hash": true,
+        "exact_values": true,
+        "inv:sum_n_equals_input_rows": true,
+        "inv:sum_total_equals_input_amount": true,
+        "inv:groups_equal_distinct_customers": true
+      },
+      "detail": {
+        "rows": 99994,
+        "ref_rows": 99994,
+        "hash": "91fa0ea12445a85abac43c6135de62135423025c63043d44cbe90d803e050fb8",
+        "ref_hash": "91fa0ea12445a85abac43c6135de62135423025c63043d44cbe90d803e050fb8",
+        "logical_schema": [
+          [
+            "customer_id",
+            "int64"
+          ],
+          [
+            "n",
+            "int64"
+          ],
+          [
+            "total_cents",
+            "int64"
+          ]
+        ],
+        "physical_schema": [
+          [
+            "customer_id",
+            "int64"
+          ],
+          [
+            "n",
+            "int64"
+          ],
+          [
+            "total_cents",
+            "int64"
+          ]
+        ]
+      }
+    },
+    {
+      "engine": "spark",
+      "query": "q0",
+      "round": 4,
+      "warmup": false,
+      "status": "PASS",
+      "checks": {
+        "schema": true,
+        "row_count": true,
+        "canonical_hash": true,
+        "exact_values": true,
+        "inv:n_rows_equals_input": true,
+        "inv:sum_amount_equals_input": true
+      },
+      "detail": {
+        "rows": 1,
+        "ref_rows": 1,
+        "hash": "99db4f5025cbcdb147bf2aad44479b71e2a711a910b17834863b46016bee1386",
+        "ref_hash": "99db4f5025cbcdb147bf2aad44479b71e2a711a910b17834863b46016bee1386",
+        "logical_schema": [
+          [
+            "n_rows",
+            "int64"
+          ],
+          [
+            "n_customer",
+            "int64"
+          ],
+          [
+            "sum_store",
+            "int64"
+          ],
+          [
+            "sum_product",
+            "int64"
+          ],
+          [
+            "sum_day",
+            "int64"
+          ],
+          [
+            "sum_status_len",
+            "int64"
+          ],
+          [
+            "sum_amount",
+            "int64"
+          ],
+          [
+            "sum_order",
+            "int64"
+          ]
+        ],
+        "physical_schema": [
+          [
+            "n_rows",
+            "int64"
+          ],
+          [
+            "n_customer",
+            "int64"
+          ],
+          [
+            "sum_store",
+            "int64"
+          ],
+          [
+            "sum_product",
+            "int64"
+          ],
+          [
+            "sum_day",
+            "int64"
+          ],
+          [
+            "sum_status_len",
+            "int64"
+          ],
+          [
+            "sum_amount",
+            "int64"
+          ],
+          [
+            "sum_order",
+            "int64"
+          ]
+        ]
+      }
+    },
+    {
+      "engine": "duckdb",
+      "query": "q0",
+      "round": 4,
+      "warmup": false,
+      "status": "PASS",
+      "checks": {
+        "schema": true,
+        "row_count": true,
+        "canonical_hash": true,
+        "exact_values": true,
+        "inv:n_rows_equals_input": true,
+        "inv:sum_amount_equals_input": true
+      },
+      "detail": {
+        "rows": 1,
+        "ref_rows": 1,
+        "hash": "99db4f5025cbcdb147bf2aad44479b71e2a711a910b17834863b46016bee1386",
+        "ref_hash": "99db4f5025cbcdb147bf2aad44479b71e2a711a910b17834863b46016bee1386",
+        "logical_schema": [
+          [
+            "n_rows",
+            "int64"
+          ],
+          [
+            "n_customer",
+            "int64"
+          ],
+          [
+            "sum_store",
+            "int64"
+          ],
+          [
+            "sum_product",
+            "int64"
+          ],
+          [
+            "sum_day",
+            "int64"
+          ],
+          [
+            "sum_status_len",
+            "int64"
+          ],
+          [
+            "sum_amount",
+            "int64"
+          ],
+          [
+            "sum_order",
+            "int64"
+          ]
+        ],
+        "physical_schema": [
+          [
+            "n_rows",
+            "int64"
+          ],
+          [
+            "n_customer",
+            "int64"
+          ],
+          [
+            "sum_store",
+            "int64"
+          ],
+          [
+            "sum_product",
+            "int64"
+          ],
+          [
+            "sum_day",
+            "int64"
+          ],
+          [
+            "sum_status_len",
+            "int64"
+          ],
+          [
+            "sum_amount",
+            "int64"
+          ],
+          [
+            "sum_order",
+            "int64"
+          ]
+        ]
+      }
+    },
+    {
+      "engine": "polars",
+      "query": "q0",
+      "round": 4,
+      "warmup": false,
+      "status": "PASS",
+      "checks": {
+        "schema": true,
+        "row_count": true,
+        "canonical_hash": true,
+        "exact_values": true,
+        "inv:n_rows_equals_input": true,
+        "inv:sum_amount_equals_input": true
+      },
+      "detail": {
+        "rows": 1,
+        "ref_rows": 1,
+        "hash": "99db4f5025cbcdb147bf2aad44479b71e2a711a910b17834863b46016bee1386",
+        "ref_hash": "99db4f5025cbcdb147bf2aad44479b71e2a711a910b17834863b46016bee1386",
+        "logical_schema": [
+          [
+            "n_rows",
+            "int64"
+          ],
+          [
+            "n_customer",
+            "int64"
+          ],
+          [
+            "sum_store",
+            "int64"
+          ],
+          [
+            "sum_product",
+            "int64"
+          ],
+          [
+            "sum_day",
+            "int64"
+          ],
+          [
+            "sum_status_len",
+            "int64"
+          ],
+          [
+            "sum_amount",
+            "int64"
+          ],
+          [
+            "sum_order",
+            "int64"
+          ]
+        ],
+        "physical_schema": [
+          [
+            "n_rows",
+            "int64"
+          ],
+          [
+            "n_customer",
+            "int64"
+          ],
+          [
+            "sum_store",
+            "int64"
+          ],
+          [
+            "sum_product",
+            "int64"
+          ],
+          [
+            "sum_day",
+            "int64"
+          ],
+          [
+            "sum_status_len",
+            "int64"
+          ],
+          [
+            "sum_amount",
+            "int64"
+          ],
+          [
+            "sum_order",
+            "int64"
+          ]
+        ]
+      }
+    },
+    {
+      "engine": "spark",
+      "query": "q1",
+      "round": 4,
+      "warmup": false,
+      "status": "PASS",
+      "checks": {
+        "schema": true,
+        "row_count": true,
+        "keys_unique": true,
+        "key_set": true,
+        "canonical_hash": true,
+        "exact_values": true,
+        "inv:sum_n_equals_filtered_rows": true
+      },
+      "detail": {
+        "rows": 100,
+        "ref_rows": 100,
+        "hash": "92bedc2b6707609011d9296cce5c70b84d2468967cc651a2b9d3fafb08511629",
+        "ref_hash": "92bedc2b6707609011d9296cce5c70b84d2468967cc651a2b9d3fafb08511629",
+        "logical_schema": [
+          [
+            "store_id",
+            "int32"
+          ],
+          [
+            "status",
+            "string"
+          ],
+          [
+            "n",
+            "int64"
+          ],
+          [
+            "total_cents",
+            "int64"
+          ]
+        ],
+        "physical_schema": [
+          [
+            "store_id",
+            "int32"
+          ],
+          [
+            "status",
+            "string"
+          ],
+          [
+            "n",
+            "int64"
+          ],
+          [
+            "total_cents",
+            "int64"
+          ]
+        ]
+      }
+    },
+    {
+      "engine": "duckdb",
+      "query": "q1",
+      "round": 4,
+      "warmup": false,
+      "status": "PASS",
+      "checks": {
+        "schema": true,
+        "row_count": true,
+        "keys_unique": true,
+        "key_set": true,
+        "canonical_hash": true,
+        "exact_values": true,
+        "inv:sum_n_equals_filtered_rows": true
+      },
+      "detail": {
+        "rows": 100,
+        "ref_rows": 100,
+        "hash": "92bedc2b6707609011d9296cce5c70b84d2468967cc651a2b9d3fafb08511629",
+        "ref_hash": "92bedc2b6707609011d9296cce5c70b84d2468967cc651a2b9d3fafb08511629",
+        "logical_schema": [
+          [
+            "store_id",
+            "int32"
+          ],
+          [
+            "status",
+            "string"
+          ],
+          [
+            "n",
+            "int64"
+          ],
+          [
+            "total_cents",
+            "int64"
+          ]
+        ],
+        "physical_schema": [
+          [
+            "store_id",
+            "int32"
+          ],
+          [
+            "status",
+            "string"
+          ],
+          [
+            "n",
+            "int64"
+          ],
+          [
+            "total_cents",
+            "int64"
+          ]
+        ]
+      }
+    },
+    {
+      "engine": "polars",
+      "query": "q1",
+      "round": 4,
+      "warmup": false,
+      "status": "PASS",
+      "checks": {
+        "schema": true,
+        "row_count": true,
+        "keys_unique": true,
+        "key_set": true,
+        "canonical_hash": true,
+        "exact_values": true,
+        "inv:sum_n_equals_filtered_rows": true
+      },
+      "detail": {
+        "rows": 100,
+        "ref_rows": 100,
+        "hash": "92bedc2b6707609011d9296cce5c70b84d2468967cc651a2b9d3fafb08511629",
+        "ref_hash": "92bedc2b6707609011d9296cce5c70b84d2468967cc651a2b9d3fafb08511629",
+        "logical_schema": [
+          [
+            "store_id",
+            "int32"
+          ],
+          [
+            "status",
+            "string"
+          ],
+          [
+            "n",
+            "int64"
+          ],
+          [
+            "total_cents",
+            "int64"
+          ]
+        ],
+        "physical_schema": [
+          [
+            "store_id",
+            "int32"
+          ],
+          [
+            "status",
+            "large_string"
+          ],
+          [
+            "n",
+            "int64"
+          ],
+          [
+            "total_cents",
+            "int64"
+          ]
+        ]
+      }
+    },
+    {
+      "engine": "spark",
+      "query": "q2",
+      "round": 4,
+      "warmup": false,
+      "status": "PASS",
+      "checks": {
+        "schema": true,
+        "row_count": true,
+        "keys_unique": true,
+        "key_set": true,
+        "canonical_hash": true,
+        "exact_values": true,
+        "inv:join_reconciliation(matched+unmatched=noncancelled)": true
+      },
+      "detail": {
+        "rows": 21,
+        "ref_rows": 21,
+        "hash": "fcecb390d35983108670198e4a84e051fd2cdf9bb0c3e15e4ce75e26ed38ba27",
+        "ref_hash": "fcecb390d35983108670198e4a84e051fd2cdf9bb0c3e15e4ce75e26ed38ba27",
+        "logical_schema": [
+          [
+            "category",
+            "string"
+          ],
+          [
+            "n",
+            "int64"
+          ],
+          [
+            "total_cents",
+            "int64"
+          ]
+        ],
+        "physical_schema": [
+          [
+            "category",
+            "string"
+          ],
+          [
+            "n",
+            "int64"
+          ],
+          [
+            "total_cents",
+            "int64"
+          ]
+        ]
+      }
+    },
+    {
+      "engine": "duckdb",
+      "query": "q2",
+      "round": 4,
+      "warmup": false,
+      "status": "PASS",
+      "checks": {
+        "schema": true,
+        "row_count": true,
+        "keys_unique": true,
+        "key_set": true,
+        "canonical_hash": true,
+        "exact_values": true,
+        "inv:join_reconciliation(matched+unmatched=noncancelled)": true
+      },
+      "detail": {
+        "rows": 21,
+        "ref_rows": 21,
+        "hash": "fcecb390d35983108670198e4a84e051fd2cdf9bb0c3e15e4ce75e26ed38ba27",
+        "ref_hash": "fcecb390d35983108670198e4a84e051fd2cdf9bb0c3e15e4ce75e26ed38ba27",
+        "logical_schema": [
+          [
+            "category",
+            "string"
+          ],
+          [
+            "n",
+            "int64"
+          ],
+          [
+            "total_cents",
+            "int64"
+          ]
+        ],
+        "physical_schema": [
+          [
+            "category",
+            "string"
+          ],
+          [
+            "n",
+            "int64"
+          ],
+          [
+            "total_cents",
+            "int64"
+          ]
+        ]
+      }
+    },
+    {
+      "engine": "polars",
+      "query": "q2",
+      "round": 4,
+      "warmup": false,
+      "status": "PASS",
+      "checks": {
+        "schema": true,
+        "row_count": true,
+        "keys_unique": true,
+        "key_set": true,
+        "canonical_hash": true,
+        "exact_values": true,
+        "inv:join_reconciliation(matched+unmatched=noncancelled)": true
+      },
+      "detail": {
+        "rows": 21,
+        "ref_rows": 21,
+        "hash": "fcecb390d35983108670198e4a84e051fd2cdf9bb0c3e15e4ce75e26ed38ba27",
+        "ref_hash": "fcecb390d35983108670198e4a84e051fd2cdf9bb0c3e15e4ce75e26ed38ba27",
+        "logical_schema": [
+          [
+            "category",
+            "string"
+          ],
+          [
+            "n",
+            "int64"
+          ],
+          [
+            "total_cents",
+            "int64"
+          ]
+        ],
+        "physical_schema": [
+          [
+            "category",
+            "large_string"
+          ],
+          [
+            "n",
+            "int64"
+          ],
+          [
+            "total_cents",
+            "int64"
+          ]
+        ]
+      }
+    },
+    {
+      "engine": "spark",
+      "query": "q3",
+      "round": 4,
+      "warmup": false,
+      "status": "PASS",
+      "checks": {
+        "schema": true,
+        "row_count": true,
+        "keys_unique": true,
+        "key_set": true,
+        "canonical_hash": true,
+        "exact_values": true,
+        "inv:one_row_per_customer": true
+      },
+      "detail": {
+        "rows": 99994,
+        "ref_rows": 99994,
+        "hash": "5ead35d109ef567657f104f007b61321a2aa4196432b17eed7eb566ce4b4404a",
+        "ref_hash": "5ead35d109ef567657f104f007b61321a2aa4196432b17eed7eb566ce4b4404a",
+        "logical_schema": [
+          [
+            "customer_id",
+            "int64"
+          ],
+          [
+            "order_id",
+            "int64"
+          ],
+          [
+            "day_id",
+            "int32"
+          ],
+          [
+            "amount_cents",
+            "int64"
+          ]
+        ],
+        "physical_schema": [
+          [
+            "customer_id",
+            "int64"
+          ],
+          [
+            "order_id",
+            "int64"
+          ],
+          [
+            "day_id",
+            "int32"
+          ],
+          [
+            "amount_cents",
+            "int64"
+          ]
+        ]
+      }
+    },
+    {
+      "engine": "duckdb",
+      "query": "q3",
+      "round": 4,
+      "warmup": false,
+      "status": "PASS",
+      "checks": {
+        "schema": true,
+        "row_count": true,
+        "keys_unique": true,
+        "key_set": true,
+        "canonical_hash": true,
+        "exact_values": true,
+        "inv:one_row_per_customer": true
+      },
+      "detail": {
+        "rows": 99994,
+        "ref_rows": 99994,
+        "hash": "5ead35d109ef567657f104f007b61321a2aa4196432b17eed7eb566ce4b4404a",
+        "ref_hash": "5ead35d109ef567657f104f007b61321a2aa4196432b17eed7eb566ce4b4404a",
+        "logical_schema": [
+          [
+            "customer_id",
+            "int64"
+          ],
+          [
+            "order_id",
+            "int64"
+          ],
+          [
+            "day_id",
+            "int32"
+          ],
+          [
+            "amount_cents",
+            "int64"
+          ]
+        ],
+        "physical_schema": [
+          [
+            "customer_id",
+            "int64"
+          ],
+          [
+            "order_id",
+            "int64"
+          ],
+          [
+            "day_id",
+            "int32"
+          ],
+          [
+            "amount_cents",
+            "int64"
+          ]
+        ]
+      }
+    },
+    {
+      "engine": "polars",
+      "query": "q3",
+      "round": 4,
+      "warmup": false,
+      "status": "PASS",
+      "checks": {
+        "schema": true,
+        "row_count": true,
+        "keys_unique": true,
+        "key_set": true,
+        "canonical_hash": true,
+        "exact_values": true,
+        "inv:one_row_per_customer": true
+      },
+      "detail": {
+        "rows": 99994,
+        "ref_rows": 99994,
+        "hash": "5ead35d109ef567657f104f007b61321a2aa4196432b17eed7eb566ce4b4404a",
+        "ref_hash": "5ead35d109ef567657f104f007b61321a2aa4196432b17eed7eb566ce4b4404a",
+        "logical_schema": [
+          [
+            "customer_id",
+            "int64"
+          ],
+          [
+            "order_id",
+            "int64"
+          ],
+          [
+            "day_id",
+            "int32"
+          ],
+          [
+            "amount_cents",
+            "int64"
+          ]
+        ],
+        "physical_schema": [
+          [
+            "customer_id",
+            "int64"
+          ],
+          [
+            "order_id",
+            "int64"
+          ],
+          [
+            "day_id",
+            "int32"
+          ],
+          [
+            "amount_cents",
+            "int64"
+          ]
+        ]
+      }
+    },
+    {
+      "engine": "spark",
+      "query": "q0",
+      "round": 5,
+      "warmup": false,
+      "status": "PASS",
+      "checks": {
+        "schema": true,
+        "row_count": true,
+        "canonical_hash": true,
+        "exact_values": true,
+        "inv:n_rows_equals_input": true,
+        "inv:sum_amount_equals_input": true
+      },
+      "detail": {
+        "rows": 1,
+        "ref_rows": 1,
+        "hash": "99db4f5025cbcdb147bf2aad44479b71e2a711a910b17834863b46016bee1386",
+        "ref_hash": "99db4f5025cbcdb147bf2aad44479b71e2a711a910b17834863b46016bee1386",
+        "logical_schema": [
+          [
+            "n_rows",
+            "int64"
+          ],
+          [
+            "n_customer",
+            "int64"
+          ],
+          [
+            "sum_store",
+            "int64"
+          ],
+          [
+            "sum_product",
+            "int64"
+          ],
+          [
+            "sum_day",
+            "int64"
+          ],
+          [
+            "sum_status_len",
+            "int64"
+          ],
+          [
+            "sum_amount",
+            "int64"
+          ],
+          [
+            "sum_order",
+            "int64"
+          ]
+        ],
+        "physical_schema": [
+          [
+            "n_rows",
+            "int64"
+          ],
+          [
+            "n_customer",
+            "int64"
+          ],
+          [
+            "sum_store",
+            "int64"
+          ],
+          [
+            "sum_product",
+            "int64"
+          ],
+          [
+            "sum_day",
+            "int64"
+          ],
+          [
+            "sum_status_len",
+            "int64"
+          ],
+          [
+            "sum_amount",
+            "int64"
+          ],
+          [
+            "sum_order",
+            "int64"
+          ]
+        ]
+      }
+    },
+    {
+      "engine": "polars",
+      "query": "q0",
+      "round": 5,
+      "warmup": false,
+      "status": "PASS",
+      "checks": {
+        "schema": true,
+        "row_count": true,
+        "canonical_hash": true,
+        "exact_values": true,
+        "inv:n_rows_equals_input": true,
+        "inv:sum_amount_equals_input": true
+      },
+      "detail": {
+        "rows": 1,
+        "ref_rows": 1,
+        "hash": "99db4f5025cbcdb147bf2aad44479b71e2a711a910b17834863b46016bee1386",
+        "ref_hash": "99db4f5025cbcdb147bf2aad44479b71e2a711a910b17834863b46016bee1386",
+        "logical_schema": [
+          [
+            "n_rows",
+            "int64"
+          ],
+          [
+            "n_customer",
+            "int64"
+          ],
+          [
+            "sum_store",
+            "int64"
+          ],
+          [
+            "sum_product",
+            "int64"
+          ],
+          [
+            "sum_day",
+            "int64"
+          ],
+          [
+            "sum_status_len",
+            "int64"
+          ],
+          [
+            "sum_amount",
+            "int64"
+          ],
+          [
+            "sum_order",
+            "int64"
+          ]
+        ],
+        "physical_schema": [
+          [
+            "n_rows",
+            "int64"
+          ],
+          [
+            "n_customer",
+            "int64"
+          ],
+          [
+            "sum_store",
+            "int64"
+          ],
+          [
+            "sum_product",
+            "int64"
+          ],
+          [
+            "sum_day",
+            "int64"
+          ],
+          [
+            "sum_status_len",
+            "int64"
+          ],
+          [
+            "sum_amount",
+            "int64"
+          ],
+          [
+            "sum_order",
+            "int64"
+          ]
+        ]
+      }
+    },
+    {
+      "engine": "duckdb",
+      "query": "q0",
+      "round": 5,
+      "warmup": false,
+      "status": "PASS",
+      "checks": {
+        "schema": true,
+        "row_count": true,
+        "canonical_hash": true,
+        "exact_values": true,
+        "inv:n_rows_equals_input": true,
+        "inv:sum_amount_equals_input": true
+      },
+      "detail": {
+        "rows": 1,
+        "ref_rows": 1,
+        "hash": "99db4f5025cbcdb147bf2aad44479b71e2a711a910b17834863b46016bee1386",
+        "ref_hash": "99db4f5025cbcdb147bf2aad44479b71e2a711a910b17834863b46016bee1386",
+        "logical_schema": [
+          [
+            "n_rows",
+            "int64"
+          ],
+          [
+            "n_customer",
+            "int64"
+          ],
+          [
+            "sum_store",
+            "int64"
+          ],
+          [
+            "sum_product",
+            "int64"
+          ],
+          [
+            "sum_day",
+            "int64"
+          ],
+          [
+            "sum_status_len",
+            "int64"
+          ],
+          [
+            "sum_amount",
+            "int64"
+          ],
+          [
+            "sum_order",
+            "int64"
+          ]
+        ],
+        "physical_schema": [
+          [
+            "n_rows",
+            "int64"
+          ],
+          [
+            "n_customer",
+            "int64"
+          ],
+          [
+            "sum_store",
+            "int64"
+          ],
+          [
+            "sum_product",
+            "int64"
+          ],
+          [
+            "sum_day",
+            "int64"
+          ],
+          [
+            "sum_status_len",
+            "int64"
+          ],
+          [
+            "sum_amount",
+            "int64"
+          ],
+          [
+            "sum_order",
+            "int64"
+          ]
+        ]
+      }
+    },
+    {
+      "engine": "spark",
+      "query": "q1",
+      "round": 5,
+      "warmup": false,
+      "status": "PASS",
+      "checks": {
+        "schema": true,
+        "row_count": true,
+        "keys_unique": true,
+        "key_set": true,
+        "canonical_hash": true,
+        "exact_values": true,
+        "inv:sum_n_equals_filtered_rows": true
+      },
+      "detail": {
+        "rows": 100,
+        "ref_rows": 100,
+        "hash": "92bedc2b6707609011d9296cce5c70b84d2468967cc651a2b9d3fafb08511629",
+        "ref_hash": "92bedc2b6707609011d9296cce5c70b84d2468967cc651a2b9d3fafb08511629",
+        "logical_schema": [
+          [
+            "store_id",
+            "int32"
+          ],
+          [
+            "status",
+            "string"
+          ],
+          [
+            "n",
+            "int64"
+          ],
+          [
+            "total_cents",
+            "int64"
+          ]
+        ],
+        "physical_schema": [
+          [
+            "store_id",
+            "int32"
+          ],
+          [
+            "status",
+            "string"
+          ],
+          [
+            "n",
+            "int64"
+          ],
+          [
+            "total_cents",
+            "int64"
+          ]
+        ]
+      }
+    },
+    {
+      "engine": "polars",
+      "query": "q1",
+      "round": 5,
+      "warmup": false,
+      "status": "PASS",
+      "checks": {
+        "schema": true,
+        "row_count": true,
+        "keys_unique": true,
+        "key_set": true,
+        "canonical_hash": true,
+        "exact_values": true,
+        "inv:sum_n_equals_filtered_rows": true
+      },
+      "detail": {
+        "rows": 100,
+        "ref_rows": 100,
+        "hash": "92bedc2b6707609011d9296cce5c70b84d2468967cc651a2b9d3fafb08511629",
+        "ref_hash": "92bedc2b6707609011d9296cce5c70b84d2468967cc651a2b9d3fafb08511629",
+        "logical_schema": [
+          [
+            "store_id",
+            "int32"
+          ],
+          [
+            "status",
+            "string"
+          ],
+          [
+            "n",
+            "int64"
+          ],
+          [
+            "total_cents",
+            "int64"
+          ]
+        ],
+        "physical_schema": [
+          [
+            "store_id",
+            "int32"
+          ],
+          [
+            "status",
+            "large_string"
+          ],
+          [
+            "n",
+            "int64"
+          ],
+          [
+            "total_cents",
+            "int64"
+          ]
+        ]
+      }
+    },
+    {
+      "engine": "duckdb",
+      "query": "q1",
+      "round": 5,
+      "warmup": false,
+      "status": "PASS",
+      "checks": {
+        "schema": true,
+        "row_count": true,
+        "keys_unique": true,
+        "key_set": true,
+        "canonical_hash": true,
+        "exact_values": true,
+        "inv:sum_n_equals_filtered_rows": true
+      },
+      "detail": {
+        "rows": 100,
+        "ref_rows": 100,
+        "hash": "92bedc2b6707609011d9296cce5c70b84d2468967cc651a2b9d3fafb08511629",
+        "ref_hash": "92bedc2b6707609011d9296cce5c70b84d2468967cc651a2b9d3fafb08511629",
+        "logical_schema": [
+          [
+            "store_id",
+            "int32"
+          ],
+          [
+            "status",
+            "string"
+          ],
+          [
+            "n",
+            "int64"
+          ],
+          [
+            "total_cents",
+            "int64"
+          ]
+        ],
+        "physical_schema": [
+          [
+            "store_id",
+            "int32"
+          ],
+          [
+            "status",
+            "string"
+          ],
+          [
+            "n",
+            "int64"
+          ],
+          [
+            "total_cents",
+            "int64"
+          ]
+        ]
+      }
+    },
+    {
+      "engine": "spark",
+      "query": "q2",
+      "round": 5,
+      "warmup": false,
+      "status": "PASS",
+      "checks": {
+        "schema": true,
+        "row_count": true,
+        "keys_unique": true,
+        "key_set": true,
+        "canonical_hash": true,
+        "exact_values": true,
+        "inv:join_reconciliation(matched+unmatched=noncancelled)": true
+      },
+      "detail": {
+        "rows": 21,
+        "ref_rows": 21,
+        "hash": "fcecb390d35983108670198e4a84e051fd2cdf9bb0c3e15e4ce75e26ed38ba27",
+        "ref_hash": "fcecb390d35983108670198e4a84e051fd2cdf9bb0c3e15e4ce75e26ed38ba27",
+        "logical_schema": [
+          [
+            "category",
+            "string"
+          ],
+          [
+            "n",
+            "int64"
+          ],
+          [
+            "total_cents",
+            "int64"
+          ]
+        ],
+        "physical_schema": [
+          [
+            "category",
+            "string"
+          ],
+          [
+            "n",
+            "int64"
+          ],
+          [
+            "total_cents",
+            "int64"
+          ]
+        ]
+      }
+    },
+    {
+      "engine": "polars",
+      "query": "q2",
+      "round": 5,
+      "warmup": false,
+      "status": "PASS",
+      "checks": {
+        "schema": true,
+        "row_count": true,
+        "keys_unique": true,
+        "key_set": true,
+        "canonical_hash": true,
+        "exact_values": true,
+        "inv:join_reconciliation(matched+unmatched=noncancelled)": true
+      },
+      "detail": {
+        "rows": 21,
+        "ref_rows": 21,
+        "hash": "fcecb390d35983108670198e4a84e051fd2cdf9bb0c3e15e4ce75e26ed38ba27",
+        "ref_hash": "fcecb390d35983108670198e4a84e051fd2cdf9bb0c3e15e4ce75e26ed38ba27",
+        "logical_schema": [
+          [
+            "category",
+            "string"
+          ],
+          [
+            "n",
+            "int64"
+          ],
+          [
+            "total_cents",
+            "int64"
+          ]
+        ],
+        "physical_schema": [
+          [
+            "category",
+            "large_string"
+          ],
+          [
+            "n",
+            "int64"
+          ],
+          [
+            "total_cents",
+            "int64"
+          ]
+        ]
+      }
+    },
+    {
+      "engine": "duckdb",
+      "query": "q2",
+      "round": 5,
+      "warmup": false,
+      "status": "PASS",
+      "checks": {
+        "schema": true,
+        "row_count": true,
+        "keys_unique": true,
+        "key_set": true,
+        "canonical_hash": true,
+        "exact_values": true,
+        "inv:join_reconciliation(matched+unmatched=noncancelled)": true
+      },
+      "detail": {
+        "rows": 21,
+        "ref_rows": 21,
+        "hash": "fcecb390d35983108670198e4a84e051fd2cdf9bb0c3e15e4ce75e26ed38ba27",
+        "ref_hash": "fcecb390d35983108670198e4a84e051fd2cdf9bb0c3e15e4ce75e26ed38ba27",
+        "logical_schema": [
+          [
+            "category",
+            "string"
+          ],
+          [
+            "n",
+            "int64"
+          ],
+          [
+            "total_cents",
+            "int64"
+          ]
+        ],
+        "physical_schema": [
+          [
+            "category",
+            "string"
+          ],
+          [
+            "n",
+            "int64"
+          ],
+          [
+            "total_cents",
+            "int64"
+          ]
+        ]
+      }
+    },
+    {
+      "engine": "spark",
+      "query": "q3",
+      "round": 5,
+      "warmup": false,
+      "status": "PASS",
+      "checks": {
+        "schema": true,
+        "row_count": true,
+        "keys_unique": true,
+        "key_set": true,
+        "canonical_hash": true,
+        "exact_values": true,
+        "inv:one_row_per_customer": true
+      },
+      "detail": {
+        "rows": 99994,
+        "ref_rows": 99994,
+        "hash": "5ead35d109ef567657f104f007b61321a2aa4196432b17eed7eb566ce4b4404a",
+        "ref_hash": "5ead35d109ef567657f104f007b61321a2aa4196432b17eed7eb566ce4b4404a",
+        "logical_schema": [
+          [
+            "customer_id",
+            "int64"
+          ],
+          [
+            "order_id",
+            "int64"
+          ],
+          [
+            "day_id",
+            "int32"
+          ],
+          [
+            "amount_cents",
+            "int64"
+          ]
+        ],
+        "physical_schema": [
+          [
+            "customer_id",
+            "int64"
+          ],
+          [
+            "order_id",
+            "int64"
+          ],
+          [
+            "day_id",
+            "int32"
+          ],
+          [
+            "amount_cents",
+            "int64"
+          ]
+        ]
+      }
+    },
+    {
+      "engine": "polars",
+      "query": "q3",
+      "round": 5,
+      "warmup": false,
+      "status": "PASS",
+      "checks": {
+        "schema": true,
+        "row_count": true,
+        "keys_unique": true,
+        "key_set": true,
+        "canonical_hash": true,
+        "exact_values": true,
+        "inv:one_row_per_customer": true
+      },
+      "detail": {
+        "rows": 99994,
+        "ref_rows": 99994,
+        "hash": "5ead35d109ef567657f104f007b61321a2aa4196432b17eed7eb566ce4b4404a",
+        "ref_hash": "5ead35d109ef567657f104f007b61321a2aa4196432b17eed7eb566ce4b4404a",
+        "logical_schema": [
+          [
+            "customer_id",
+            "int64"
+          ],
+          [
+            "order_id",
+            "int64"
+          ],
+          [
+            "day_id",
+            "int32"
+          ],
+          [
+            "amount_cents",
+            "int64"
+          ]
+        ],
+        "physical_schema": [
+          [
+            "customer_id",
+            "int64"
+          ],
+          [
+            "order_id",
+            "int64"
+          ],
+          [
+            "day_id",
+            "int32"
+          ],
+          [
+            "amount_cents",
+            "int64"
+          ]
+        ]
+      }
+    },
+    {
+      "engine": "duckdb",
+      "query": "q3",
+      "round": 5,
+      "warmup": false,
+      "status": "PASS",
+      "checks": {
+        "schema": true,
+        "row_count": true,
+        "keys_unique": true,
+        "key_set": true,
+        "canonical_hash": true,
+        "exact_values": true,
+        "inv:one_row_per_customer": true
+      },
+      "detail": {
+        "rows": 99994,
+        "ref_rows": 99994,
+        "hash": "5ead35d109ef567657f104f007b61321a2aa4196432b17eed7eb566ce4b4404a",
+        "ref_hash": "5ead35d109ef567657f104f007b61321a2aa4196432b17eed7eb566ce4b4404a",
+        "logical_schema": [
+          [
+            "customer_id",
+            "int64"
+          ],
+          [
+            "order_id",
+            "int64"
+          ],
+          [
+            "day_id",
+            "int32"
+          ],
+          [
+            "amount_cents",
+            "int64"
+          ]
+        ],
+        "physical_schema": [
+          [
+            "customer_id",
+            "int64"
+          ],
+          [
+            "order_id",
+            "int64"
+          ],
+          [
+            "day_id",
+            "int32"
+          ],
+          [
+            "amount_cents",
+            "int64"
+          ]
+        ]
+      }
+    },
+    {
+      "engine": "spark",
+      "query": "q4",
+      "round": 5,
+      "warmup": false,
+      "status": "PASS",
+      "checks": {
+        "schema": true,
+        "row_count": true,
+        "keys_unique": true,
+        "key_set": true,
+        "canonical_hash": true,
+        "exact_values": true,
+        "inv:sum_n_equals_input_rows": true,
+        "inv:sum_total_equals_input_amount": true,
+        "inv:groups_equal_distinct_customers": true
+      },
+      "detail": {
+        "rows": 99994,
+        "ref_rows": 99994,
+        "hash": "91fa0ea12445a85abac43c6135de62135423025c63043d44cbe90d803e050fb8",
+        "ref_hash": "91fa0ea12445a85abac43c6135de62135423025c63043d44cbe90d803e050fb8",
+        "logical_schema": [
+          [
+            "customer_id",
+            "int64"
+          ],
+          [
+            "n",
+            "int64"
+          ],
+          [
+            "total_cents",
+            "int64"
+          ]
+        ],
+        "physical_schema": [
+          [
+            "customer_id",
+            "int64"
+          ],
+          [
+            "n",
+            "int64"
+          ],
+          [
+            "total_cents",
+            "int64"
+          ]
+        ]
+      }
+    },
+    {
+      "engine": "polars",
+      "query": "q4",
+      "round": 5,
+      "warmup": false,
+      "status": "PASS",
+      "checks": {
+        "schema": true,
+        "row_count": true,
+        "keys_unique": true,
+        "key_set": true,
+        "canonical_hash": true,
+        "exact_values": true,
+        "inv:sum_n_equals_input_rows": true,
+        "inv:sum_total_equals_input_amount": true,
+        "inv:groups_equal_distinct_customers": true
+      },
+      "detail": {
+        "rows": 99994,
+        "ref_rows": 99994,
+        "hash": "91fa0ea12445a85abac43c6135de62135423025c63043d44cbe90d803e050fb8",
+        "ref_hash": "91fa0ea12445a85abac43c6135de62135423025c63043d44cbe90d803e050fb8",
+        "logical_schema": [
+          [
+            "customer_id",
+            "int64"
+          ],
+          [
+            "n",
+            "int64"
+          ],
+          [
+            "total_cents",
+            "int64"
+          ]
+        ],
+        "physical_schema": [
+          [
+            "customer_id",
+            "int64"
+          ],
+          [
+            "n",
+            "int64"
+          ],
+          [
+            "total_cents",
+            "int64"
+          ]
+        ]
+      }
+    },
+    {
+      "engine": "duckdb",
+      "query": "q4",
+      "round": 5,
+      "warmup": false,
+      "status": "PASS",
+      "checks": {
+        "schema": true,
+        "row_count": true,
+        "keys_unique": true,
+        "key_set": true,
+        "canonical_hash": true,
+        "exact_values": true,
+        "inv:sum_n_equals_input_rows": true,
+        "inv:sum_total_equals_input_amount": true,
+        "inv:groups_equal_distinct_customers": true
+      },
+      "detail": {
+        "rows": 99994,
+        "ref_rows": 99994,
+        "hash": "91fa0ea12445a85abac43c6135de62135423025c63043d44cbe90d803e050fb8",
+        "ref_hash": "91fa0ea12445a85abac43c6135de62135423025c63043d44cbe90d803e050fb8",
+        "logical_schema": [
+          [
+            "customer_id",
+            "int64"
+          ],
+          [
+            "n",
+            "int64"
+          ],
+          [
+            "total_cents",
+            "int64"
+          ]
+        ],
+        "physical_schema": [
+          [
+            "customer_id",
+            "int64"
+          ],
+          [
+            "n",
+            "int64"
+          ],
+          [
+            "total_cents",
+            "int64"
+          ]
+        ]
+      }
+    }
+  ]
+}

@@ -1,0 +1,7 @@
+[extension] data (10,000,000 rows)...
+[extension] independent reference...
+[extension] 1/90 duckdb_q0_r0       PASS  wall=0.677s work=0.2636s rss=87MiB
+[extension] 2/90 polars_q0_r0       PASS  wall=0.780s work=0.3068s rss=890MiB
+[extension] 3/90 spark_q0_r0        ERROR wall=6399.214s work=nans rss=690MiB
+[extension] 4/90 duckdb_q1_r0       PASS  wall=1.763s work=0.3473s rss=77MiB
+[extension] 5/90 polars_q1_r0       PASS  wall=1.312s work=0.4094s rss=584MiB

@@ -1,0 +1,12 @@
+wrote results\charts\latency_end_to_end_smoke.png
+wrote results\charts\latency_engine_work_smoke.png
+wrote results\charts\memory_peak_rss_smoke.png
+wrote results\charts\latency_end_to_end_baseline.png
+wrote results\charts\latency_engine_work_baseline.png
+wrote results\charts\memory_peak_rss_baseline.png
+wrote results\charts\latency_end_to_end_extension.png
+wrote results\charts\latency_engine_work_extension.png
+wrote results\charts\memory_peak_rss_extension.png
+wrote results\charts\throughput_by_scale.png
+wrote results\charts\linkedin_16x9.png
+wrote results/summary_stats.csv, results/summary_table.md, results/failures.csv

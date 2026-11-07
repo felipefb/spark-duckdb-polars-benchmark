@@ -1,0 +1,27 @@
+{
+  "rows": 10000,
+  "seed": 20261106,
+  "rng": "numpy PCG64",
+  "numpy": "2.5.4",
+  "pyarrow": "22.0.0",
+  "chunk_rows": 1000000,
+  "row_group_size": 122880,
+  "currency": "int64 cents",
+  "products": 1000,
+  "orphan_product_ids": [
+    1001,
+    1050
+  ],
+  "generation_seconds": 0.4371,
+  "files": {
+    "sales.parquet": {
+      "bytes": 179329,
+      "content_sha256": "5855b22974a046799d5e86652c1d54b57ad62d45e41fcb5e2756949f7b50682b"
+    },
+    "products.parquet": {
+      "bytes": 6796,
+      "content_sha256": "a8a24b529a8447b381f152faf79eccb7a1b19361a142ed54633525c6338615ae"
+    }
+  },
+  "hash_seconds": 0.0232
+}

@@ -1,0 +1,10 @@
+25,26c25,26
+<     con.execute("COPY (SELECT i::BIGINT AS product_id, ('category_' || CAST(i%20 AS VARCHAR)) AS category FROM range(1,1001) t(i)) TO ? (FORMAT PARQUET)",[str(DATA/'products.parquet')])
+<     con.execute("COPY (SELECT i::BIGINT AS order_id, (i%GREATEST(1,CAST(?/10 AS BIGINT))+1)::BIGINT AS customer_id, (i%100+1)::INTEGER AS store_id, (i%1000+1)::BIGINT AS product_id, (i%365)::INTEGER AS day_id, CASE WHEN i%11=0 THEN 'cancelled' WHEN i%7=0 THEN 'pending' ELSE 'paid' END AS status, ((i*37)%100000+100)::BIGINT AS amount_cents FROM range(1,?+1) t(i)) TO ? (FORMAT PARQUET, ROW_GROUP_SIZE 122880)",[rows,rows,str(DATA/'sales.parquet')])
+---
+>     con.execute("COPY (SELECT i::BIGINT AS product_id, ('category_' || CAST(i%20 AS VARCHAR)) AS category FROM range(1,1001) t(i)) TO '"+(DATA/'products.parquet').as_posix()+"' (FORMAT PARQUET)")
+>     con.execute("COPY (SELECT i::BIGINT AS order_id, (i%GREATEST(1,CAST(?/10 AS BIGINT))+1)::BIGINT AS customer_id, (i%100+1)::INTEGER AS store_id, (i%1000+1)::BIGINT AS product_id, (i%365)::INTEGER AS day_id, CASE WHEN i%11=0 THEN 'cancelled' WHEN i%7=0 THEN 'pending' ELSE 'paid' END AS status, ((i*37)%100000+100)::BIGINT AS amount_cents FROM range(1,?+1) t(i)) TO '"+(DATA/'sales.parquet').as_posix()+"' (FORMAT PARQUET, ROW_GROUP_SIZE 122880)",[rows,rows])
+91c91
+<         record.update(json.loads(stdout.strip().splitlines()[-1]))
+---
+>         record.update(json.loads([l for l in stdout.strip().splitlines() if l.startswith('{')][-1]))

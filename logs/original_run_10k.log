@@ -1,0 +1,7 @@
+﻿..\..\.venv\Scripts\python : Run generate first
+No linha:1 caractere:658
++ ... te_10k.log; ..\..\.venv\Scripts\python benchmark.py run --repeats 1 - ...
++                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (Run generate first:String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 

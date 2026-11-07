@@ -1,0 +1,27 @@
+[extension] data (10,000,000 rows)...
+[extension] independent reference...
+[extension] 1/90 duckdb_q0_r0       PASS  wall=1.038s work=0.4913s rss=90MiB
+[extension] 2/90 polars_q0_r0       PASS  wall=1.309s work=0.5632s rss=898MiB
+[extension] 3/90 spark_q0_r0        PASS  wall=22.009s work=10.0410s rss=1415MiB
+[extension] 4/90 duckdb_q1_r0       PASS  wall=1.427s work=0.4207s rss=77MiB
+[extension] 5/90 polars_q1_r0       PASS  wall=1.386s work=0.5136s rss=587MiB
+Traceback (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "C:\Dev\Linkedin\Spark_DuckDB_Polars\src\bench\cli.py", line 35, in <module>
+    main()
+  File "C:\Dev\Linkedin\Spark_DuckDB_Polars\src\bench\cli.py", line 25, in main
+    run_scale(s, cfg, a.engines, a.queries, a.measured, a.warmup)
+  File "C:\Dev\Linkedin\Spark_DuckDB_Polars\src\bench\runner.py", line 240, in run_scale
+    _run_plan(plan, scale, rows, threads, d, out, logs, tmp_root, cfg, env, ref, records, validations, kept)
+  File "C:\Dev\Linkedin\Spark_DuckDB_Polars\src\bench\runner.py", line 259, in _run_plan
+    m = measure(cmd, env, logs / f"{tag}.log", tmp, cfg["sampler_interval_seconds"], cfg["run_timeout_seconds"])
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Dev\Linkedin\Spark_DuckDB_Polars\src\bench\runner.py", line 147, in measure
+    procs = [root] + root.children(recursive=True)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Dev\Linkedin\Spark_DuckDB_Polars\.venv\Lib\site-packages\psutil\__init__.py", line 977, in children
+    ppid_map = _ppid_map()
+               ^^^^^^^^^^^
+OSError: [WinError 1455] O arquivo de paginação é muito pequeno para que esta operação seja concluída
+EXIT 1

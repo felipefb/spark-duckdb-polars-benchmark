@@ -1,0 +1,117 @@
+{
+  "captured_at_utc": "2026-11-07T22:29:41.440923+00:00",
+  "hostname_has_underscore": true,
+  "os": "Windows-11-10.0.26200-SP0",
+  "machine": "AMD64",
+  "cpu": "Intel(R) Core(TM) i7-8565U CPU @ 1.80GHz",
+  "cpu_logical": 8,
+  "cpu_physical": 4,
+  "cpu_freq_mhz": 1992.0,
+  "ram_total_gib": 15.81,
+  "ram_available_gib_at_start": 6.29,
+  "data_path": "E:\\Dev\\Linkedin\\Spark_DuckDB_Polars\\data\\smoke",
+  "project_drive": "E:",
+  "disk_free_gib": 927.11,
+  "physical_disks": [
+    {
+      "FriendlyName": "Exbom USB 3.1",
+      "MediaType": "HDD",
+      "BusType": "USB",
+      "Size": 1000204886016
+    },
+    {
+      "FriendlyName": "ADATA SU810NS38 SATA 128 GB",
+      "MediaType": "SSD",
+      "BusType": "RAID",
+      "Size": 128035676160
+    }
+  ],
+  "python": "3.12.10 (tags/v3.12.10:0cc8128, Apr  8 2025, 12:21:36) [MSC v.1943 64 bit (AMD64)]",
+  "python_executable": "E:\\Dev\\Linkedin\\Spark_DuckDB_Polars\\.venv\\Scripts\\python.exe",
+  "sqlite": "3.49.1",
+  "java": "Picked up JAVA_TOOL_OPTIONS: -Djava.io.tmpdir=E:\\Dev\\Linkedin\\Spark_DuckDB_Polars\\tmp\\scratch\nopenjdk version \"17.0.21\" 2026-10-20\nOpenJDK Runtime Environment Temurin-17.0.21+9 (build 17.0.21+9)\nOpenJDK 64-Bit Server VM Temurin-17.0.21+9 (build 17.0.21+9, mixed mode, sharing)",
+  "packages": {
+    "duckdb": "1.4.1",
+    "polars": "1.35.2",
+    "pyspark": "4.0.1",
+    "pyarrow": "22.0.0",
+    "numpy": "2.5.4",
+    "psutil": "7.1.3",
+    "matplotlib": "3.11.2",
+    "pandas": "3.1.1",
+    "pytest": "9.2.0",
+    "py4j": "0.10.9.9"
+  },
+  "env": {
+    "JAVA_HOME": "C:\\Users\\felip/tools/jdk-17.0.21+9",
+    "SPARK_HOME": null,
+    "HADOOP_HOME": null,
+    "PYSPARK_PYTHON": null,
+    "PYSPARK_DRIVER_PYTHON": null,
+    "POLARS_MAX_THREADS": null,
+    "SPARK_LOCAL_HOSTNAME": null,
+    "TZ": null,
+    "PYTHONHASHSEED": null,
+    "OMP_NUM_THREADS": null,
+    "TEMP": "E:\\Dev\\Linkedin\\Spark_DuckDB_Polars\\tmp\\scratch",
+    "TMP": "E:\\Dev\\Linkedin\\Spark_DuckDB_Polars\\tmp\\scratch",
+    "POLARS_TEMP_DIR": "E:\\Dev\\Linkedin\\Spark_DuckDB_Polars\\tmp\\scratch",
+    "SPARK_LOCAL_DIRS": "E:\\Dev\\Linkedin\\Spark_DuckDB_Polars\\tmp\\scratch",
+    "JAVA_TOOL_OPTIONS": "-Djava.io.tmpdir=E:\\Dev\\Linkedin\\Spark_DuckDB_Polars\\tmp\\scratch"
+  },
+  "config": {
+    "seed": 20261106,
+    "threads": 4,
+    "warmup_rounds": 1,
+    "measured_rounds": 5,
+    "run_timeout_seconds": 1800,
+    "sampler_interval_seconds": 0.05,
+    "min_available_ram_gib": {
+      "smoke": 1,
+      "baseline": 3,
+      "extension": 9
+    },
+    "engines": [
+      "duckdb",
+      "polars",
+      "spark"
+    ],
+    "queries": [
+      "q0",
+      "q1",
+      "q2",
+      "q3",
+      "q4"
+    ],
+    "scales": {
+      "smoke": 10000,
+      "baseline": 1000000,
+      "extension": 10000000
+    },
+    "duckdb": {
+      "settings": {
+        "preserve_insertion_order": "true"
+      }
+    },
+    "polars": {
+      "env": {}
+    },
+    "spark": {
+      "conf": {
+        "spark.driver.memory": "6g",
+        "spark.sql.shuffle.partitions": "4",
+        "spark.sql.session.timeZone": "UTC",
+        "spark.ui.enabled": "false",
+        "spark.driver.host": "localhost",
+        "spark.driver.bindAddress": "127.0.0.1",
+        "spark.sql.adaptive.enabled": "true",
+        "spark.sql.ansi.enabled": "true"
+      }
+    },
+    "common_env": {
+      "TZ": "UTC",
+      "PYTHONHASHSEED": "0",
+      "SPARK_LOCAL_HOSTNAME": "localhost"
+    }
+  }
+}

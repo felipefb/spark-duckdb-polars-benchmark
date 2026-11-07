@@ -1,0 +1,19 @@
+.venv/
+data/
+tmp/
+logs/runs/
+results/*/outputs/
+__pycache__/
+*.pyc
+original_minpatch/data/
+original_minpatch/results/
+original/data_engine_benchmark/__pycache__/
+
+
+# Artefatos regeneráveis grandes (saídas e referências em Parquet)
+*.parquet
+results/*/outputs/
+results/_discarded/*/outputs/
+logs/runs/_discarded*/
+# Logs de crash da JVM (podem conter variáveis de ambiente)
+hs_err_*.log
