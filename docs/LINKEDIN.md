@@ -30,7 +30,7 @@ A lição: velocidade sem correção verificada é só um número bonito. Valide
 
 Código, dados sintéticos com seed fixa e instruções para reproduzir: https://github.com/felipefb/spark-duckdb-polars-benchmark
 
-Inspirado na auditoria de Jacob Verhoeks ("Half the bugs were in the benchmark", nov/2026).
+Inspirado em "Half the bugs were in the benchmark", de Jacob Verhoeks (4/nov/2026): https://jacob.verhoeks.org/blog/2026-11-04-half-the-bugs-were-in-the-benchmark/
 
 #DataEngineering #DuckDB #Polars #ApacheSpark #Benchmark
 
@@ -49,7 +49,7 @@ Inspirado na auditoria de Jacob Verhoeks ("Half the bugs were in the benchmark",
 
 ## Short English version
 **Spark vs DuckDB vs Polars: fastest isn't always best — and a wrong benchmark is expensive.**
-Before timing anything I audited a small retail benchmark: it didn't run, DuckDB was its own correctness oracle, and Polars summed all-NULL groups as 0 instead of NULL (masked because the data had no NULLs). I rebuilt it with a blocking, independent reference (plain Python + SQLite), hand-written edge cases and validation of every measured run. On one laptop (10M rows, 5 runs after warm-up), DuckDB and Polars took ~0.2–4 s of engine time per query; local-mode Spark took ~8–26 s, plus ~8.5–10.5 s session start-up. No universal winner, and nothing here speaks to Spark clusters. Validate first, then measure. Repo: https://github.com/felipefb/spark-duckdb-polars-benchmark
+Before timing anything I audited a small retail benchmark: it didn't run, DuckDB was its own correctness oracle, and Polars summed all-NULL groups as 0 instead of NULL (masked because the data had no NULLs). I rebuilt it with a blocking, independent reference (plain Python + SQLite), hand-written edge cases and validation of every measured run. On one laptop (10M rows, 5 runs after warm-up), DuckDB and Polars took ~0.2–4 s of engine time per query; local-mode Spark took ~8–26 s, plus ~8.5–10.5 s session start-up. No universal winner, and nothing here speaks to Spark clusters. Validate first, then measure. Inspired by Jacob Verhoeks, "Half the bugs were in the benchmark" (https://jacob.verhoeks.org/blog/2026-11-04-half-the-bugs-were-in-the-benchmark/). Repo: https://github.com/felipefb/spark-duckdb-polars-benchmark
 
 ---
 
@@ -62,6 +62,6 @@ Before timing anything I audited a small retail benchmark: it didn't run, DuckDB
 - [x] Limitações explícitas (`docs/RESULTS.md` G), sem afirmação de superioridade universal ou sobre cluster
 - [x] Repositório público criado: https://github.com/felipefb/spark-duckdb-polars-benchmark
 - [x] Datasets, Parquet, venv e logs de crash da JVM fora do repositório
-- [ ] Verificar o link e o título do artigo de Jacob Verhoeks (citados no PROMPT; **não verifiquei a URL**)
+- [x] Fonte verificada (HTTP 200, 2026-11-07): "Half the bugs were in the benchmark", Jacob Verhoeks, 4/nov/2026 — https://jacob.verhoeks.org/blog/2026-11-04-half-the-bugs-were-in-the-benchmark/
 - [ ] Opcional: rodar o benchmark em outra máquina (SSD interno/Linux) para checar se a conclusão se mantém
 - [ ] Opcional: experimento separado com Spark em sessão aquecida e/ou cluster, com custos documentados
