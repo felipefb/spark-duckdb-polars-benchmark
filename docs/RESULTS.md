@@ -27,7 +27,7 @@ Fonte: `results/key_results.md` (medianas, IQR, razão para o motor mais rápido
 
 Observações [MEDIDO], cada uma válida só para a sua consulta e escala:
 1. **O Spark local tem um custo fixo de ~8,5–10,5 s só para iniciar a sessão (JVM + SparkSession)**, igual em 10k, 1M e 10M (`key_results.md`, seção "Custo fixo"). Mesmo sem contar isso, o "trabalho do motor" no Spark ficou entre ~6,5 s e ~26 s em todas as escalas. Nesta máquina e nessas escalas, o Spark foi o mais lento em todas as consultas, nas duas métricas.
-2. **DuckDB e Polars ficaram na mesma ordem de grandeza.** Nenhum dos dois venceu tudo. Em 10M, o DuckDB teve a menor mediana nas 4 consultas de negócio. Em 1M, **o Polars foi mais rápido no Q4** (agregação de alta cardinalidade). As razões estão em `key_results.md`.
+2. **DuckDB e Polars ficaram na mesma ordem de grandeza.** Nenhum dos dois venceu tudo. Em 10M, o DuckDB teve a menor mediana nas 4 consultas de negócio. Em 1M, **o Polars foi mais rápido no Q4** (agregação de alta cardinalidade) no *tempo do motor*, com faixas p25–p75 sem sobreposição. No *ponta a ponta*, o DuckDB ficou ligeiramente à frente, mas dentro da variação entre execuções: na prática, empate. O vencedor depende do volume e da métrica. As razões estão em `key_results.md`.
 3. **O Q3 (janela) é o caso mais caro** para os três motores em 10M, e é onde o Spark fica relativamente menos distante (razão ~10× contra ~20–50× nas outras consultas).
 4. **Memória (pico de RSS da árvore de processos):** em 10M, o DuckDB ficou abaixo de ~550 MiB, o Polars entre ~0,6 e 1,5 GiB e o Spark entre ~1,1 e 2,5 GiB (mediana; a JVM está incluída). Veja a ressalva sobre RSS nas limitações.
 5. **CPU:** o Spark consome várias vezes o seu tempo de parede em CPU (coluna "CPU s" em `summary_table.md`), por causa da JVM, da compilação JIT e das threads de GC. Isso importa em ambientes que cobram por CPU.
@@ -61,7 +61,7 @@ Observações [MEDIDO], cada uma válida só para a sua consulta e escala:
 | Situação | Observação medida aqui | Recomendação arquitetural (julgamento, **não** medido) |
 |---|---|---|
 | Consultas analíticas interativas ou ad hoc em dados que cabem numa máquina | DuckDB e Polars em ~0,2–4 s no trabalho do motor em 10M; Spark local ≥ 8 s, mais ~8,5–10,5 s de inicialização | **DuckDB** (SQL) ou **Polars** (API DataFrame em Python), conforme a equipe |
-| Pipelines Python com transformações encadeadas | Polars competitivo; venceu o Q4 em 1M | **Polars** quando o código já é DataFrame. Atenção ao uso de memória, maior que o do DuckDB nas medições |
+| Pipelines Python com transformações encadeadas | Polars competitivo; no Q4 em 1M foi mais rápido no tempo do motor (empate no ponta a ponta) | **Polars** quando o código já é DataFrame. Atenção ao uso de memória, maior que o do DuckDB nas medições |
 | SQL embarcado, baixo uso de memória | DuckDB teve o menor RSS em todas as consultas de 10M | **DuckDB** |
 | Jobs curtos e frequentes (≤ segundos) | O custo fixo do Spark local (~8,5–10,5 s) domina | Evitar o Spark local para isso |
 | Dados maiores que a RAM de uma máquina, processamento distribuído, governança e ecossistema existente (Delta/Iceberg, Unity/Hive, streaming) | **Não medido aqui** | **Spark em cluster** pode ser a escolha certa. Exige um benchmark próprio, com cluster, custos e configuração documentados |

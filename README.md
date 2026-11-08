@@ -97,7 +97,7 @@ Gráficos por escala (latência, memória, throughput) em [`results/charts/`](re
 
 **Podemos concluir, para esta máquina, até 10M linhas e estas 4 consultas:**
 - **Os três motores chegaram à mesma resposta exata** depois que a semântica foi explicitada. A correção foi uma questão de *especificar* bem, e nenhum motor estava "errado".
-- **DuckDB e Polars ficaram na mesma ordem de grandeza**, e nenhum venceu tudo: o DuckDB liderou em 10M, mas o Polars venceu a agregação de alta cardinalidade em 1M ([results/key_results.md](results/key_results.md)).
+- **DuckDB e Polars ficaram na mesma ordem de grandeza**, e nenhum venceu tudo: o DuckDB liderou todas as consultas em 10M, mas em 1M o Polars foi mais rápido no **tempo do motor** da agregação de alta cardinalidade, enquanto no **ponta a ponta** os dois empataram (diferença menor que a variação entre execuções). O vencedor depende do volume e da métrica ([results/key_results.md](results/key_results.md)).
 - **No Spark em modo local, o custo fixo de inicialização pesa muito** em jobs curtos. Mesmo descontado esse custo, ele foi o mais lento em todas as consultas e escalas medidas, e usou mais memória.
 - **A consulta de janela (Q3) é a mais cara** para todos, e é onde a diferença relativa do Spark é menor.
 
