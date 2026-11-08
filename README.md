@@ -67,7 +67,7 @@ Também protegemos o experimento contra o ambiente: uma execução que atravessa
 
 ## 5. Resultados
 
-**Correção: 270 de 270 execuções medidas com PASS** (3 motores × 5 consultas × 6 execuções × 3 escalas), mais 65 testes automatizados. Só a partir daí os tempos foram comparados.
+**Correção: 270 de 270 execuções com PASS** (3 motores × 5 consultas × 3 escalas × 6 execuções: 1 aquecimento + 5 medições; ou seja, 225 medições e 45 aquecimentos, todos validados), mais 65 testes automatizados. Só a partir daí os tempos foram comparados.
 
 <!-- RESULTADOS:INICIO (gerado por report.py) -->
 
@@ -159,7 +159,7 @@ src/bench/runner.py         orquestração, amostragem de memória/CPU, validaç
 src/bench/report.py         estatísticas, gráficos e a tabela de resultados deste README
 tests/                      casos de borda com resposta escrita à mão + testes do próprio validador
 results/                    dados brutos (runs.csv), validation.json, ambiente, gráficos, resumos
-docs/                       AUDIT (auditoria), SEMANTICS (regras), RESULTS (limitações e decisões), LINKEDIN
+docs/                       AUDIT (auditoria), SEMANTICS (regras), RESULTS (limitações e decisões)
 original/                   ZIP original intacto · original_minpatch/: cópia com patch mínimo, só para diagnóstico
 ```
 

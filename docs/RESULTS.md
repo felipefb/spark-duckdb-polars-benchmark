@@ -13,7 +13,7 @@ Fonte: `results/<escala>/validation.json`, `results/pytest_junit.xml`, `logs/pyt
 | DuckDB q0–q4 | PASS em todas as execuções | PASS | PASS |
 | Polars q0–q4 | PASS | PASS | PASS |
 | Spark q0–q4 | PASS | PASS | PASS |
-| Execuções (1 aquecimento + 5 medidas) × 15 combinações | 90/90 PASS | 90/90 PASS | 90/90 PASS |
+| Execuções (1 aquecimento + 5 medições) × 15 combinações motor/consulta | 90/90 PASS (75 medições) | 90/90 PASS (75 medições) | 90/90 PASS (75 medições) |
 | Execuções inválidas por suspensão do SO | 0 | 0 | 0 |
 | Testes automatizados (`python -m pytest`) | **65/65 PASS**: fixtures de borda com resultado escrito à mão, 3 datasets × 5 consultas × 3 motores, mutações do validador e defeitos do original | | |
 
